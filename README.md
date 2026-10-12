@@ -1,75 +1,113 @@
-# Nuxt Minimal Starter
+# kgallarin.com
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+My personal website that I built from scratch. Sharing my ideas and experience by this simple website.
 
-## Setup
+## 👋🏼 About Me
+I'm a Frontend Web Developer with experience in Laravel and GraphQL
 
-Make sure to install dependencies:
+## Live Link
 
-```bash
-# npm
-npm install
+https://kgallarin.com/
 
-# pnpm
-pnpm install
+## Features
 
-# yarn
-yarn install
+- About Kevin Gallarin
+- Dark Mode
+- Eye Candy
+- Animation Techniques
+- Tailwind setup
+- Frontend testing
+- SSR
 
-# bun
-bun install
-```
+## Tech Stack
 
-## Development Server
+**Frontend:** Vite, Nuxt, SplideJS, Pinia, TypeScript, TailwindCSS, Apollographql, Framer Motion
 
-Start the development server on `http://localhost:3000`:
+**Linters:** ESLint, StyleLint
 
-```bash
-# npm
-npm run dev
+**API:** Laravel, GraphQL
 
-# pnpm
-pnpm dev
+**Database:** MySQL
 
-# yarn
-yarn dev
+**Tests:** Vue Testing Library, Vitest
 
-# bun
-bun run dev
-```
+**Formatters:** Prettier
 
-## Production
+**Storage:** S3
 
-Build the application for production:
+**Server:** AWS Lightsail, Nginx
 
-```bash
-# npm
-npm run build
+**Mailer:** Resend
 
-# pnpm
-pnpm build
+## Run Locally
 
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
+Clone the project
 
 ```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
+git clone https://github.com/kgallarin/me
+```
+Setup env
+``` bash
+copy env.example to .env
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Install composer dependencies
+```bash
+$ composer install
+```
+
+Migrate the seeders, connected to S3 bucket
+```bash
+$ php artisan migrate --seed 
+```
+
+Install dependencies
+```bash
+$ npm install
+```
+
+Start the server
+
+```bash
+$ npm run dev
+```
+
+## Running Tests
+
+To run frontend unit tests, run the following command
+
+```bash
+$ npm run test:unit
+```
+
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`MAIL_MAILER`
+
+`AWS_ACCESS_KEY_ID`
+`AWS_SECRET_ACCESS_KEY`
+`AWS_DEFAULT_REGION`
+`AWS_BUCKET`
+`AWS_URL`
+
+## Authors
+
+- [@kgallarin](https://github.com/kgallarin)
+
+
+## Acknowledgements
+
+Friends and colleagues who inspired me to build this website, allotted time for recommendations and feedback. You always inspire and push me forward. 💐
+
+
+## 🔗 Links
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](hhttps://www.linkedin.com/in/kmgallarin)
+
+## License
+
+MIT — see [LICENSE](LICENSE)
+
+
