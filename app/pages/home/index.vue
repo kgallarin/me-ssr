@@ -3,7 +3,9 @@
 </script>
 
 <template>
-  home page.
+  <div>
+    home page.
+  </div>
 </template>
 
 <style scoped>

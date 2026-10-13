@@ -3,7 +3,9 @@
 </script>
 
 <template>
-  contact page
+  <div>
+    contact page
+  </div>
 </template>
 
 <style scoped>

@@ -3,7 +3,9 @@
 </script>
 
 <template>
-  me page.
+  <div>
+    me page.
+  </div>
 </template>
 
 <style scoped>
