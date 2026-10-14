@@ -1,5 +1,7 @@
 <script setup lang="ts">
-
+  definePageMeta({
+    path: '/'
+  });
 </script>
 
 <template>
@@ -7,7 +9,3 @@
     home page.
   </div>
 </template>
-
-<style scoped>
-
-</style>
