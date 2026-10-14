@@ -1,13 +1,7 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div data-testid="default-layout">
-    default layout.
+    <slot />
   </div>
 </template>
-
-<style scoped>
-
-</style>

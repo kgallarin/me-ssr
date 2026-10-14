@@ -1,5 +1,26 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { fileURLToPath } from 'node:url';
+
+import { defineNuxtConfig } from 'nuxt/config';
+
 export default defineNuxtConfig({
+  app: {
+    head: {
+      htmlAttrs: {
+        lang: 'en',
+      },
+    },
+  },
+
+  alias: {
+    '@': fileURLToPath(new URL('./', import.meta.url)),
+    '@app': fileURLToPath(new URL('./app', import.meta.url)),
+    '@components': fileURLToPath(new URL('./components', import.meta.url)),
+    '@pages': fileURLToPath(new URL('./app/pages', import.meta.url)),
+    '@store': fileURLToPath(new URL('./app/stores', import.meta.url)),
+    '@utils': fileURLToPath(new URL('./utils', import.meta.url)),
+  },
   compatibilityDate: '2025-07-15',
-  devtools: { enabled: true }
-})
+
+  devtools: { enabled: true },
+});
