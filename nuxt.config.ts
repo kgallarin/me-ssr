@@ -1,9 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import { fileURLToPath } from 'node:url';
 
+import tailwindcss from '@tailwindcss/vite';
 import { defineNuxtConfig } from 'nuxt/config';
 
 export default defineNuxtConfig({
+  css: ['~/assets/styles/app.css'],
+
   app: {
     head: {
       htmlAttrs: {
@@ -24,4 +27,10 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
 
   devtools: { enabled: true },
+
+  modules: ['@pinia/nuxt', 'pinia-plugin-persistedstate/nuxt'],
+
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });

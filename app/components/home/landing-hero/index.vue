@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import SwooshLayeredBg from '@components/motion/SwooshLayeredBg.vue';
+  import LeftAndRightTexts from '@components/home/landing-hero/LeftAndRightTexts.vue';
 
   withDefaults(
     defineProps<{
@@ -17,7 +18,7 @@
 
 <template>
   <div
-    class="hero-main border-secondary font-acumin relative flex justify-between overflow-hidden border-b"
+    class="hero-main border-secondary font-acumin relative flex flex-row justify-between overflow-hidden border-b bg-red-900"
     @click="emit('click')"
   >
     <!-- Background Layers -->
@@ -27,6 +28,7 @@
       second-bg-classes="absolute inset-0 bg-[url('/images/backgrounds/webp/swoosh_blue.webp')] bg-right bg-no-repeat"
       :is-hovered-right="isHoveredRight"
       :is-hovered-left="isHoveredLeft"
+      img-url="/images/backgrounds/webp/swoosh_gray.webp"
       :animate-prop-bg1="{
         opacity: isHoveredRight ? 1 : 0,
         x: isHoveredRight ? 0 : 10,
@@ -43,6 +45,7 @@
       second-bg-classes="absolute inset-0 bg-[url('/images/backgrounds/webp/swoosh_yellow.webp')] bg-left bg-no-repeat"
       :is-hovered-right="isHoveredRight"
       :is-hovered-left="isHoveredLeft"
+      img-url="/images/backgrounds/webp/swoosh_yellow.webp"
       :animate-prop-bg1="{
         opacity: isHoveredLeft ? 1 : 0,
         x: isHoveredLeft ? 0 : 10,
@@ -52,10 +55,11 @@
         x: isHoveredLeft ? 0 : 10,
       }"
     />
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium animi
-      aperiam dignissimos ea et explicabo nemo odio praesentium tempora voluptatem?
-      Aperiam aut corporis culpa eaque facere magni quaerat sint soluta.
-    </p>
+
+    <left-and-right-texts
+      class="absolute z-0"
+      :is-hovered-right="isHoveredRight"
+      :is-hovered-left="isHoveredLeft"
+    />
   </div>
 </template>
