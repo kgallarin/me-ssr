@@ -1,9 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import { fileURLToPath } from 'node:url';
 
+import tailwindcss from '@tailwindcss/vite';
 import { defineNuxtConfig } from 'nuxt/config';
 
 export default defineNuxtConfig({
+  css: ['~/assets/styles/app.css'],
+
   app: {
     head: {
       htmlAttrs: {
@@ -15,12 +18,19 @@ export default defineNuxtConfig({
   alias: {
     '@': fileURLToPath(new URL('./', import.meta.url)),
     '@app': fileURLToPath(new URL('./app', import.meta.url)),
-    '@components': fileURLToPath(new URL('./components', import.meta.url)),
+    '@components': fileURLToPath(new URL('./app/components', import.meta.url)),
     '@pages': fileURLToPath(new URL('./app/pages', import.meta.url)),
     '@store': fileURLToPath(new URL('./app/stores', import.meta.url)),
     '@utils': fileURLToPath(new URL('./utils', import.meta.url)),
   },
+
   compatibilityDate: '2025-07-15',
 
   devtools: { enabled: true },
+
+  modules: ['@pinia/nuxt', 'pinia-plugin-persistedstate/nuxt'],
+
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });

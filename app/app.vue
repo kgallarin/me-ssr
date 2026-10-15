@@ -1,12 +1,12 @@
 <script setup lang="ts">
   import { ConfigProvider } from 'reka-ui';
 
-  useSeoMeta({
-    titleTemplate: '%s | KGallarin',
-    ogType: 'website',
-    ogSiteName: 'Kevin Gallarin',
-    robots: 'index, follow',
-  });
+  // useSeoMeta({
+  //   titleTemplate: '%s | KGallarin',
+  //   ogType: 'website',
+  //   ogSiteName: 'Kevin Gallarin',
+  //   robots: 'index, follow',
+  // });
 </script>
 
 <template>

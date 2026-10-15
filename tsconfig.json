@@ -11,5 +11,5 @@
     "./tests/**/*.ts",
     "./types/**/*.ts"
   ],
-  "exclude": ["tests/e2e"]
+  "exclude": ["tests/e2e", "node_modules", ".nuxt", ".output"]
 }
