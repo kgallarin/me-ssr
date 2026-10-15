@@ -18,7 +18,7 @@
 
 <template>
   <div
-    class="hero-main border-secondary font-acumin relative flex flex-row justify-between overflow-hidden border-b bg-red-900"
+    class="hero-main border-secondary font-acumin relative flex justify-between overflow-hidden border-b bg-red-900"
     @click="emit('click')"
   >
     <!-- Background Layers -->

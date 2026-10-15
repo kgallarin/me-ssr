@@ -3,7 +3,7 @@
 
   import { motion } from 'motion-v';
 
-  import { useAppStore } from '@/Store/Modules/App';
+  // import { useAppStore } from '@/Store/Modules/App';
 
   const props = defineProps({
     textLeft: {
@@ -51,10 +51,10 @@
   const isHoveredLeft = ref(false);
   const isHoveredRight = ref(false);
 
-  const appStore = useAppStore();
+  // const appStore = useAppStore();
 
-  const isDarkTheme = computed(() => appStore.getTheme === 1);
-
+  // const isDarkTheme = computed(() => appStore.getTheme === 1);
+  const isDarkTheme = computed(() => 1);
   const getAnimatedColor = (isHovered: boolean) => {
     if (!isDarkTheme.value) {
       return isHovered || props.darken ? '#010303' : '#1f2a2d';
@@ -99,10 +99,19 @@
         data-testid="shard-text-left"
         :class="[textLeftClasses, 'ml-auto', 'font-light']"
         :style="{
-          webkitTextStroke: isHoveredLeft ? '0.4px currentColor' : darken ? '0.2px currentColor' : '0px currentColor',
+          webkitTextStroke: isHoveredLeft
+            ? '0.4px currentColor'
+            : darken
+              ? '0.2px currentColor'
+              : '0px currentColor',
           transition: '-webkit-text-stroke 0.8s ease-out',
         }"
-        :initial="{ x: 0, color: darken ? '#010303' : '#E5E4E2', fontWeight: 300, opacity: 1 }"
+        :initial="{
+          x: 0,
+          color: darken ? '#010303' : '#E5E4E2',
+          fontWeight: 300,
+          opacity: 1,
+        }"
         :animate="{
           x: isHoveredLeft ? -animateLeftInPixels : 0,
           color: getAnimatedColor(isHoveredLeft),
@@ -126,7 +135,11 @@
         data-testid="shard-text-right"
         :class="[textRightClasses, 'font-light']"
         :style="{
-          webkitTextStroke: isHoveredRight ? '0.4px currentColor' : darken ? '0.2px currentColor' : '0px currentColor',
+          webkitTextStroke: isHoveredRight
+            ? '0.4px currentColor'
+            : darken
+              ? '0.2px currentColor'
+              : '0px currentColor',
           transition: '-webkit-text-stroke 0.8s ease-out',
         }"
         :initial="{ x: 0, color: '#E5E4E2', fontWeight: 300, opacity: 1 }"
