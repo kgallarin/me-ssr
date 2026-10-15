@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import SwooshLayeredBg from '@components/motion/SwooshLayeredBg.vue';
   import LeftAndRightTexts from '@components/home/landing-hero/LeftAndRightTexts.vue';
+  import ImageWithSkillsText from '@components/home/landing-hero/ImageWithSkillsText.vue';
 
   withDefaults(
     defineProps<{
@@ -61,5 +62,7 @@
       :is-hovered-right="isHoveredRight"
       :is-hovered-left="isHoveredLeft"
     />
+
+    <image-with-skills-text />
   </div>
 </template>

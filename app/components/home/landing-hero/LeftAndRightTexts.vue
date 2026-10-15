@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { computed } from 'vue';
+  // import { computed } from 'vue';
 
   import { motion } from 'motion-v';
 
@@ -43,11 +43,13 @@
         class="shadow-thickens mr-auto hidden text-left font-light md:inline-block md:text-sm lg:w-3/4 lg:text-xl xl:w-5/6 xl:pl-[3%]"
         :class="[{ 'text-black': isHoveredLeft && appTheme === 'dark' }]"
       >
-        an eye for design, feels<span
+        an eye for design, feels
+        <span
           class="md:hidden xl:inline-block"
           :class="[{ 'text-black': isHoveredLeft && appTheme === 'dark' }]"
-          >and attention to detail</span
         >
+          and attention to detail
+        </span>
       </p>
     </motion.div>
 
