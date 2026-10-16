@@ -1,24 +1,19 @@
 <script setup lang="ts">
   import { ref } from 'vue';
-
-  // import kgArt1 from '@images/me/kg_art_1.webp';
-  // import kgArt2 from '@images/me/kg_art_2.webp';
-  // import kgArt3 from '@images/me/kg_art_3.webp';
   import { motion } from 'motion-v';
 
-  // import HeroAnimatedTexts from '@components/Partials/Home/LandingHero/HeroAnimatedTexts/index.vue';
-  import HeroImageTextShard from '@components/home/landing-hero/HeroImageTextShard.vue';
+  import PairedText from '@components/home/hero/PairedText.vue';
   import type { HoverablePairedText } from '@/types/animations.ts';
 
   const isAnyHoveredLeft = ref(false);
   const isAnyHoveredRight = ref(false);
 
   const currentHover = ref<'none' | 'left' | 'right'>('none');
-  const currentImage = ref('images/me/kg_art_3.webp');
+  const currentImage = ref('/images/me/kg_art_3.webp');
 
   const handleHoverLeft = () => {
     currentHover.value = 'left';
-    currentImage.value = '/images/me/kg_art_3.webp';
+    currentImage.value = '/images/me/kg_art_2.webp';
 
     isAnyHoveredLeft.value = true;
     isAnyHoveredRight.value = false;
@@ -241,7 +236,7 @@
       <!-- Perceptive -->
       <motion.div
         class="absolute inset-0 h-full w-full bg-cover bg-center bg-no-repeat md:bg-contain"
-        :style="{ backgroundImage: `url(images/me/kg_art_1.webp})` }"
+        :style="{ backgroundImage: `url(/images/me/kg_art_2.webp)` }"
         :animate="{
           clipPath:
             currentHover === 'right'
@@ -256,7 +251,7 @@
       <!-- Coding -->
       <motion.div
         class="absolute inset-0 h-full w-full bg-cover bg-center bg-no-repeat md:bg-contain"
-        :style="{ backgroundImage: `url(images/me/kg_art_1.webp)` }"
+        :style="{ backgroundImage: `url(/images/me/kg_art_1.webp)` }"
         :animate="{
           clipPath:
             currentHover === 'left'
@@ -273,7 +268,7 @@
       class="xs:-mt-2 xs:w-[420px] relative z-30 mx-auto flex flex-col font-light sm:mt-44 sm:w-[500px] md:mt-56 md:w-[700px] lg:mt-auto lg:mb-12"
     >
       <template v-for="pairedText in hoverablePairedTexts" :key="pairedText.id">
-        <hero-image-text-shard
+        <paired-text
           :class="pairedText.classes.container"
           :text-left="pairedText.textContent.left"
           :text-right="pairedText.textContent.right"
