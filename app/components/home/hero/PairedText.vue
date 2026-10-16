@@ -88,6 +88,7 @@
 
 <template>
   <div class="text-shard mb-2 grid grid-cols-2 justify-items-stretch gap-4">
+    <!--    text left-->
     <div class="relative flex cursor-pointer">
       <div
         data-testid="shard-hoverable-left"
@@ -123,6 +124,7 @@
         {{ textLeft }}
       </motion.div>
     </div>
+    <!--    text right-->
     <div class="relative flex cursor-pointer">
       <div
         data-testid="shard-hoverable-right"

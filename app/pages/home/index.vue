@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import LandingHero from '@components/home/landing-hero/index.vue';
+  import Hero from '@components/home/hero/index.vue';
   import { definePageMeta } from '#imports';
 
   definePageMeta({
@@ -9,7 +9,6 @@
 
 <template>
   <div>
-    home page.
-    <landing-hero />
+    <hero />
   </div>
 </template>
