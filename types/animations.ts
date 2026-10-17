@@ -1,5 +1,5 @@
 import type { Nullable } from '@/types/utils';
-import type { TargetAndTransition } from 'motion-v';
+import type { TargetAndTransition, ValueAnimationTransition } from 'motion-v';
 
 interface SwooshLayerProps {
   bg: {
@@ -7,7 +7,7 @@ interface SwooshLayerProps {
     imagePath: string;
   };
   animation: TargetAndTransition;
-  transition: TargetAndTransition;
+  transition: ValueAnimationTransition;
 }
 
 export type NullableSwooshLayerProps = Nullable<SwooshLayerProps>;

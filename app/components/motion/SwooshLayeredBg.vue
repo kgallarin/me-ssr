@@ -1,17 +1,22 @@
 <script setup lang="ts">
-  import { motion, type TargetAndTransition } from 'motion-v';
-  import LayeredBackgroundImage from '@components/motion/LayeredBackgroundImage.vue';
+  import { type TargetAndTransition, type ValueAnimationTransition } from 'motion-v';
+  import AnimatedBackgroundImage from '@components/motion/AnimatedBackgroundImage.vue';
 
-  withDefaults(
+  const props = withDefaults(
     defineProps<{
       containerClasses?: string;
+
+      imgUrl1: string;
       firstBgClasses?: string;
-      secondBgClasses?: string;
       isHoveredRight: boolean;
       isHoveredLeft: boolean;
-      imgUrl: string;
       animatePropBg1: TargetAndTransition;
+      transitionPropBg1: ValueAnimationTransition;
+
+      imgUrl2: string;
+      secondBgClasses?: string;
       animatePropBg2: TargetAndTransition;
+      transitionPropBg2: ValueAnimationTransition;
     }>(),
     {
       containerClasses: '',
@@ -19,33 +24,45 @@
       secondBgClasses: '',
     },
   );
+
+  const {
+    containerClasses,
+
+    imgUrl1,
+    firstBgClasses,
+    animatePropBg1,
+    transitionPropBg1,
+
+    imgUrl2,
+    secondBgClasses,
+    animatePropBg2,
+    transitionPropBg2,
+  } = props;
 </script>
 
 <template>
   <div :class="containerClasses">
     <!-- last-->
-    <layered-background-image
+    <animated-background-image
       :swoosh="{
         bg: {
           classes: firstBgClasses,
-          imagePath: imgUrl,
+          imagePath: imgUrl1,
         },
         animation: animatePropBg1,
-        transition: {
-          opacity: isHoveredRight ? 1 : 0,
-          x: isHoveredRight ? 0 : 10,
-        },
+        transition: transitionPropBg1,
       }"
     />
 
     <!--  first layer-->
-    <motion.div
-      :class="secondBgClasses"
-      :animate="animatePropBg2"
-      :transition="{
-        duration: 0.6,
-        delay: 0.2, // animate second
-        ease: 'easeOut',
+    <animated-background-image
+      :swoosh="{
+        bg: {
+          classes: secondBgClasses,
+          imagePath: imgUrl2,
+        },
+        animation: animatePropBg2,
+        transition: transitionPropBg2,
       }"
     />
   </div>
