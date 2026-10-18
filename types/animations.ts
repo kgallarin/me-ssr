@@ -1,19 +1,25 @@
+import type { AppTheme } from '@/types/app.ts';
 import type { Nullable } from '@/types/utils';
-import type { TargetAndTransition } from 'motion-v';
+import type { TargetAndTransition, ValueAnimationTransition } from 'motion-v';
 
-interface SwooshLayerProps {
+export interface AnimatedBg {
+  id: string;
   bg: {
     classes: string;
     imagePath: string;
   };
   animation: TargetAndTransition;
-  transition: TargetAndTransition;
+  transition: ValueAnimationTransition;
 }
 
-export type NullableSwooshLayerProps = Nullable<SwooshLayerProps>;
+export type StackedAnimatedBg = {
+  stack: AnimatedBg[];
+};
 
-export interface HoverablePairedText {
-  id: string;
+export type NullableAnimatedBg = Nullable<AnimatedBg>;
+
+export interface IPairedText {
+  id?: string;
 
   animatePx: {
     left: number;
@@ -43,4 +49,24 @@ export interface HoverablePairedText {
     left: string;
     right: string;
   };
+}
+
+export type PairedTextData = Pick<IPairedText, 'id' | 'darken'> & {
+  leftTextContent: IPairedText['textContent']['left'];
+  rightTextContent: IPairedText['textContent']['right'];
+  containerClass: IPairedText['classes']['container'];
+  leftPairClass: IPairedText['classes']['leftPair'];
+  rightPairClass: IPairedText['classes']['leftPair'];
+  animatePxLeft?: IPairedText['animatePx']['left'];
+  animatePxRight?: IPairedText['animatePx']['right'];
+};
+
+export type HoverDirections = 'none' | 'left' | 'right';
+export interface ITextHeader {
+  theme: AppTheme;
+  label: string;
+  direction: HoverDirections;
+  initial: TargetAndTransition;
+  animation: TargetAndTransition;
+  transition: ValueAnimationTransition;
 }
