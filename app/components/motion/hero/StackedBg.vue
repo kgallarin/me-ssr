@@ -14,17 +14,21 @@
 
 <template>
   <!-- last-->
-  <animated-background-image
-    v-for="animatedBg in computedStackedBgArr.stack"
-    :key="animatedBg.id"
-    :config="{
-      id: animatedBg.id,
-      bg: {
-        classes: animatedBg.bg.classes,
-        imagePath: animatedBg.bg.imagePath,
-      },
-      animation: animatedBg.animation,
-      transition: animatedBg.transition,
-    }"
-  />
+  <div
+    class="pointer-events-none absolute inset-0 z-40 h-full w-full overflow-hidden"
+  >
+    <animated-background-image
+      v-for="animatedBg in computedStackedBgArr.stack"
+      :key="animatedBg.id"
+      :config="{
+        id: animatedBg.id,
+        bg: {
+          classes: animatedBg.bg.classes,
+          imagePath: animatedBg.bg.imagePath,
+        },
+        animation: animatedBg.animation,
+        transition: animatedBg.transition,
+      }"
+    />
+  </div>
 </template>

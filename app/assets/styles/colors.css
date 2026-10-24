@@ -1,0 +1,14 @@
+@theme {
+    --color-primary: var(--color-primary);
+    --color-secondary: var(--color-secondary);
+    --color-tertiary: var(--color-tertiary);
+
+    --color-yellow-primary: var(--color-yellow-primary);
+
+    --color-teal-primary: var(--color-teal-primary);
+    --color-teal-secondary: var(--color-teal-secondary);
+
+    --color-gray-primary: var(--color-gray-primary);
+    --color-gray-secondary: var(--color-gray-secondary);
+    --color-gray-lighter: var(--color-gray-lighter);
+}

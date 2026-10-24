@@ -144,7 +144,7 @@ export const GREEN_AND_YELLOW_SWOOSH = {
       id: '2',
       bg: {
         imagePath: '/images/backgrounds/webp/swoosh_yellow.webp',
-        classes: 'absolute inset-0 bg-right bg-no-repeat',
+        classes: 'absolute inset-0 bg-left bg-no-repeat',
       },
     },
   ],

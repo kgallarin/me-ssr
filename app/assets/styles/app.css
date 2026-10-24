@@ -1,19 +1,81 @@
-@import "tailwindcss/preflight";
 @import "tailwindcss";
+@import "./screens.css";
+@import "./fonts.css";
+@import "./colors.css";
 
-html, body {
-    margin: 0;
-    padding: 0;
-
-
-    height: 100%;
-    min-width: 320px;
-
-    font-size: 16px;
+ /*Transition for colors, backgrounds, borders, fills, and strokes*/
+*,
+*::before,
+*::after {
+   transition:
+       color 0.4s ease,
+       background-color 0.4s ease,
+       border-color 0.4s ease,
+       fill 0.4s ease,
+       stroke 0.4s ease;
 }
 
 @layer base {
-    html, body, #__nuxt {
-        @apply h-full;
+    html,
+    body {
+        min-width: 320px;
+        scroll-behavior: smooth;
+        font-size: 16px;
+    }
+
+    .custom-test {
+        @apply text-white bg-amber-200;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply text-primary font-proxima font-bold;
+
+        text-rendering: optimizelegibility;
+    }
+
+    p, span {
+        @apply text-primary font-proxima font-light leading-loose;
+    }
+
+    .hero-main {
+        box-shadow: inset 0 -2px 9px -4px #aaaaaa;
+    }
+
+}
+
+/* Dont animate skeleton*/
+.skeleton,
+.skeleton * {
+   transition: none;
+}
+
+/* text shadows*/
+@layer utilities {
+    .text-shadow-thickens {
+        text-shadow: 0 0 0 rgba(0, 0, 0, 1);
+    }
+    .text-shadow {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 }
+
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite linear;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+

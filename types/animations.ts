@@ -69,4 +69,6 @@ export interface ITextHeader {
   initial: TargetAndTransition;
   animation: TargetAndTransition;
   transition: ValueAnimationTransition;
+  headerClasses: string;
+  subTextClasses: string;
 }
