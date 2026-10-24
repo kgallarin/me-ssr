@@ -32,13 +32,14 @@
 
         <!-- Main Header Text + Sub-texts for Split Effect -->
         <split-pair-header-texts
-          class="absolute z-0"
+          left-header-text="perceptive"
+          right-header-text="<coding />"
           :hover-direction="currentHover"
         />
 
         <!-- Subject BG(me) Images for Split Effect -->
         <div
-          class="align-center relative flex h-[450px] w-full flex-col justify-center overflow-hidden text-black md:h-auto lg:h-[800px]"
+          class="align-center relative z-10 flex h-[450px] w-full flex-col justify-center overflow-hidden text-black md:h-auto lg:h-[800px]"
         >
           <split-subject-bg-images :current-hover="currentHover" />
 
@@ -61,7 +62,5 @@
         </div>
       </div>
     </div>
-
-    <div>1234</div>
   </div>
 </template>

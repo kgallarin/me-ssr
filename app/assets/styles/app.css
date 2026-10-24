@@ -1,23 +1,58 @@
-@import "tailwindcss/preflight";
 @import "tailwindcss";
+@import "./screens.css";
+@import "./fonts.css";
+@import "./colors.css";
 
  /*Transition for colors, backgrounds, borders, fills, and strokes*/
 *,
-   *::before,
-   *::after {
-       transition:
-               color 0.4s ease,
-               background-color 0.4s ease,
-               border-color 0.4s ease,
-               fill 0.4s ease,
-               stroke 0.4s ease;
-   }
+*::before,
+*::after {
+   transition:
+       color 0.4s ease,
+       background-color 0.4s ease,
+       border-color 0.4s ease,
+       fill 0.4s ease,
+       stroke 0.4s ease;
+}
+
+@layer base {
+    html,
+    body {
+        min-width: 320px;
+        scroll-behavior: smooth;
+        font-size: 16px;
+    }
+
+    .custom-test {
+        @apply text-white bg-amber-200;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply text-primary font-proxima font-bold;
+
+        text-rendering: optimizelegibility;
+    }
+
+    p, span {
+        @apply text-primary font-proxima font-light leading-loose;
+    }
+
+    .hero-main {
+        box-shadow: inset 0 -2px 9px -4px #aaaaaa;
+    }
+
+}
 
 /* Dont animate skeleton*/
-   .skeleton,
-   .skeleton * {
-       transition: none;
-   }
+.skeleton,
+.skeleton * {
+   transition: none;
+}
 
 /* text shadows*/
 @layer utilities {

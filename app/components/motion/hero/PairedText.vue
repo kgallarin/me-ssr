@@ -48,7 +48,12 @@
 </script>
 
 <template>
-  <div :class="['text-shard mb-2 grid grid-cols-2 justify-items-stretch gap-4']">
+  <div
+    :class="[
+      'text-shard mb-2 grid grid-cols-2 justify-items-stretch gap-4',
+      computedProps.classes.container,
+    ]"
+  >
     <!--    text left-->
     <div class="relative flex cursor-pointer">
       <div
@@ -90,7 +95,7 @@
     <div class="relative flex cursor-pointer">
       <div
         data-testid="shard-hoverable-right"
-        class="hover-me-baby absolute inset-0 z-40"
+        class="hover-me-baby absolute inset-0 z-50"
         @mouseover="handleMouseOverRight"
         @mouseleave="handleMouseLeaveRight"
       ></div>
@@ -108,7 +113,7 @@
         }"
         :initial="{ x: 0, color: '#E5E4E2', fontWeight: 300, opacity: 1 }"
         :animate="{
-          x: isHoveredRight ? -computedProps.animatePx.right : 0,
+          x: isHoveredRight ? computedProps.animatePx.right : 0,
           color: getAnimatedColor(isHoveredRight),
           fontWeight: isHoveredRight ? 700 : computedProps.darken ? 500 : 300,
           opacity: computedProps.hoveredAny.left ? 0 : 1,

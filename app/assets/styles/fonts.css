@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'Acumin Pro Wide';
+    src: url('../fonts/Acumin/woff2/acumin-pro-wide-thin-webfont.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Acumin Pro Wide';
+    src: url('../fonts/Acumin/woff2/acumin-pro-wide-webfont.woff2') format('woff2');
+    font-display: swap;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url('../fonts/ProximaNova/woff2/proxima-nova-light-webfont.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url('../fonts/ProximaNova/woff2/proxima-nova-regular-webfont.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url('../fonts/ProximaNova/woff2/proxima-nova-semibold-webfont.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url('../fonts/ProximaNova/woff2/proxima-nova-extrabold-webfont.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+
+@theme {
+    --font-acumin: "Acumin Pro Wide", sans-serif;
+    --font-proxima: "Proxima Nova", sans-serif, "Helvetica Neue", Helvetica, Arial;
+}
