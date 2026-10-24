@@ -48,12 +48,7 @@
 </script>
 
 <template>
-  <div
-    :class="[
-      computedProps.classes.container,
-      'text-shard mb-2 grid grid-cols-2 justify-items-stretch gap-4',
-    ]"
-  >
+  <div :class="['text-shard mb-2 grid grid-cols-2 justify-items-stretch gap-4']">
     <!--    text left-->
     <div class="relative flex cursor-pointer">
       <div

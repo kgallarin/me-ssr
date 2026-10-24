@@ -11,6 +11,8 @@
   <div
     class="absolute top-[35%] right-0 left-0 z-50 mx-auto flex h-auto w-full items-center justify-between p-0 text-black sm:px-4 md:top-auto md:z-10 md:h-full md:px-8 md:pb-28 lg:max-w-screen-lg xl:max-w-screen-xl"
   >
+    <!-- Background Images for Split Effect -->
+
     <text-headers
       class="w-1/2 pr-[18%] text-center md:pr-[20%]"
       :paired-text-headers="{

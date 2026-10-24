@@ -1,19 +1,46 @@
 @import "tailwindcss/preflight";
 @import "tailwindcss";
 
-html, body {
-    margin: 0;
-    padding: 0;
+ /*Transition for colors, backgrounds, borders, fills, and strokes*/
+*,
+   *::before,
+   *::after {
+       transition:
+               color 0.4s ease,
+               background-color 0.4s ease,
+               border-color 0.4s ease,
+               fill 0.4s ease,
+               stroke 0.4s ease;
+   }
 
+/* Dont animate skeleton*/
+   .skeleton,
+   .skeleton * {
+       transition: none;
+   }
 
-    height: 100%;
-    min-width: 320px;
-
-    font-size: 16px;
-}
-
-@layer base {
-    html, body, #__nuxt {
-        @apply h-full;
+/* text shadows*/
+@layer utilities {
+    .text-shadow-thickens {
+        text-shadow: 0 0 0 rgba(0, 0, 0, 1);
+    }
+    .text-shadow {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 }
+
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite linear;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
