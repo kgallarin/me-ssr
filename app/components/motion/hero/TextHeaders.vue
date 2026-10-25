@@ -31,7 +31,7 @@
       :class="[
         {
           'text-black':
-            computedProps.direction === 'center' && computedProps.theme === 'dark',
+            computedProps.direction === 'right' && computedProps.theme === 'dark',
         },
         computedProps.subTextClasses,
       ]"

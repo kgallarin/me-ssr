@@ -1,4 +1,6 @@
 <script setup lang="ts">
+  import { PAIRED_TEXT_DATA } from '~/assets/constants.ts';
+
   definePageMeta({
     path: '/',
   });
@@ -7,8 +9,9 @@
   import SplitPairHeaderTexts from '@app/partials/home/split-effect/SplitPairHeaderTexts.vue';
   import SplitSubjectBgImages from '~/partials/home/split-effect/SplitSubjectBgImages.vue';
   import StackedBg from '@components/motion/hero/StackedBg.vue';
+  import { useHeroAnimation } from '~/composables/home/useHeroAnimation.ts';
 
-  const { currentHover, hoverablePairedTexts, swooshBgPair1, swooshBgPair2 } =
+  const { hoverablePairedTexts, currentHover, swooshBgPair1, swooshBgPair2 } =
     useHeroAnimation();
 </script>
 
@@ -62,5 +65,7 @@
         </div>
       </div>
     </div>
+
+    {{ PAIRED_TEXT_DATA }}
   </div>
 </template>

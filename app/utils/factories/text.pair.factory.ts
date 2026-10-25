@@ -13,6 +13,9 @@ export const textPairSeeder = (
     left: boolean;
     right: boolean;
   },
+
+  // evaluated responsive values
+  resolvedAnimatedPx: { left: number; right: number },
 ): IPairedText => {
   return {
     id: data.id,
@@ -26,8 +29,8 @@ export const textPairSeeder = (
       rightPair: 'mx-auto',
     },
     animatePx: {
-      left: data.animatePxLeft ?? 70,
-      right: data.animatePxRight ?? 70,
+      left: resolvedAnimatedPx.left,
+      right: resolvedAnimatedPx.right,
     },
     hover: hover,
     hoveredAny: hoveredAny,

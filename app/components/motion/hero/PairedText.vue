@@ -3,6 +3,7 @@
 
   import { motion } from 'motion-v';
   import type { IPairedText } from '@/types/animations.ts';
+  import { useAppStore } from '@store/modules/app.ts';
 
   const props = defineProps<{
     pairedTextsProps: IPairedText;
@@ -25,6 +26,8 @@
       return computedProps.value.darken && !isHovered ? '#fefefe' : '#fff';
     }
   };
+
+  // const animateOffsetLeft = computed(() => appStore.queryBreakpoints(computedProps.value.animatePx.))
 
   const handleMouseOverLeft = () => {
     isHoveredLeft.value = true;

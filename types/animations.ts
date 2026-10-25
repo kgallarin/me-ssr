@@ -18,6 +18,12 @@ export type StackedAnimatedBg = {
 
 export type NullableAnimatedBg = Nullable<AnimatedBg>;
 
+export type CustomAnimatesToBreakpoint = {
+  desktop?: number;
+  tablet?: number;
+  mobile?: number;
+};
+
 export interface IPairedText {
   id?: string;
 
@@ -57,8 +63,8 @@ export type PairedTextData = Pick<IPairedText, 'id' | 'darken'> & {
   containerClass: IPairedText['classes']['container'];
   leftPairClass: IPairedText['classes']['leftPair'];
   rightPairClass: IPairedText['classes']['leftPair'];
-  animatePxLeft?: IPairedText['animatePx']['left'];
-  animatePxRight?: IPairedText['animatePx']['right'];
+  animatePxLeft?: CustomAnimatesToBreakpoint;
+  animatePxRight?: CustomAnimatesToBreakpoint;
 };
 
 export type HoverDirections = 'none' | 'left' | 'right';
