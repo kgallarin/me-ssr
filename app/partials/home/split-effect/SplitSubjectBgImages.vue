@@ -17,7 +17,6 @@
   <div
     class="pointer-events-none absolute inset-0 z-40 h-full w-full overflow-hidden"
   >
-    <!-- Perceptive -->
     <motion.div
       class="absolute inset-0 h-full w-full bg-cover bg-center bg-no-repeat md:bg-contain"
       :style="{ backgroundImage: 'url(/images/me/kg_art_2.webp)' }"
@@ -32,7 +31,6 @@
       :transition="{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }"
     />
 
-    <!-- Coding -->
     <motion.div
       class="absolute inset-0 h-full w-full bg-cover bg-center bg-no-repeat md:bg-contain"
       :style="{ backgroundImage: 'url(/images/me/kg_art_1.webp)' }"
