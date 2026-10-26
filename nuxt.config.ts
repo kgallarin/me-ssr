@@ -20,6 +20,7 @@ export default defineNuxtConfig({
     '@app': fileURLToPath(new URL('./app', import.meta.url)),
     '@components': fileURLToPath(new URL('./app/components', import.meta.url)),
     '@pages': fileURLToPath(new URL('./app/pages', import.meta.url)),
+    '@partials': fileURLToPath(new URL('./app/partials', import.meta.url)),
     '@store': fileURLToPath(new URL('./app/stores', import.meta.url)),
     '@utils': fileURLToPath(new URL('./utils', import.meta.url)),
   },

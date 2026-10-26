@@ -115,7 +115,12 @@
               : '0px currentColor',
           transition: '-webkit-text-stroke 0.8s ease-out',
         }"
-        :initial="{ x: 0, color: '#E5E4E2', fontWeight: 300, opacity: 1 }"
+        :initial="{
+          x: 0,
+          color: computedProps.darken ? '#010303' : '#E5E4E2',
+          fontWeight: 300,
+          opacity: 1,
+        }"
         :animate="{
           x: isHoveredRight ? computedProps.animatePx.right : 0,
           color: getAnimatedColor(isHoveredRight),
