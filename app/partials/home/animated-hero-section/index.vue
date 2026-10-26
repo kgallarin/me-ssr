@@ -1,6 +1,4 @@
 <script setup lang="ts">
-  import { PAIRED_TEXT_DATA } from '~/assets/constants.ts';
-
   import PairedText from '@components/motion/hero/PairedText.vue';
   import SplitPairHeaderTexts from '@app/partials/home/split-effect/SplitPairHeaderTexts.vue';
   import SplitSubjectBgImages from '~/partials/home/split-effect/SplitSubjectBgImages.vue';
@@ -54,9 +52,3 @@
     </div>
   </div>
 </template>
-
-<style lang="css">
-  .text-shard div {
-    line-height: 1.25;
-  }
-</style>

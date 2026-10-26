@@ -11,12 +11,5 @@
     class="bg-gray-lighter flex flex-1 flex-col bg-[url('/images/backgrounds/webp/leaves-4.webp')] bg-blend-multiply"
   >
     <animated-hero-section />
-    asdasd
   </div>
 </template>
-
-<style lang="css">
-  .text-shard div {
-    line-height: 1.25;
-  }
-</style>
