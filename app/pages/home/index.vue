@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import AnimatedHeroSection from '@partials/home/animated-hero-section/index.vue';
+
   definePageMeta({
     path: '/',
     layout: 'default',

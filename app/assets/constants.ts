@@ -1,4 +1,4 @@
-import type { PairedTextData } from '@/types/animations.ts';
+import type { PairedTextData } from '@/types/Animations.ts';
 
 export const STORAGE_KEYS = {
   THEME: 'theme',

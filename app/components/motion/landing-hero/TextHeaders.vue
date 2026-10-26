@@ -1,7 +1,8 @@
 <script setup lang="ts">
-  import { motion } from 'motion-v';
   import { computed } from 'vue';
-  import type { ITextHeader } from '@/types/animations.ts';
+
+  import type { ITextHeader } from '@/types/Animations.ts';
+  import { motion } from 'motion-v';
 
   const props = defineProps<{
     pairedTextHeaders: ITextHeader;

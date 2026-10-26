@@ -1,4 +1,4 @@
-import type { AnimatedBg } from '@/types/animations';
+import type { AnimatedBg } from '@/types/Animations.ts';
 import type { TargetAndTransition, ValueAnimationTransition } from 'motion-v';
 
 export const stackedBackgroundSeeder = (

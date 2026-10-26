@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import TextHeaders from '@components/motion/hero/TextHeaders.vue';
-  import type { HoverDirections } from '@/types/animations.ts';
+  import type { HoverDirections } from '@/types/Animations.ts';
+  import TextHeaders from '@components/motion/landing-hero/TextHeaders.vue';
 
   const props = defineProps<{
     hoverDirection: HoverDirections;
