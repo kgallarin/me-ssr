@@ -1,10 +1,54 @@
+:root {
+    --rich-black: #010303;
+    --metallic-black: #060606;
+    --bright-gray: #efefef;
+    --lemon-yellow: #fffa2a;
+    --bright-cyan: #04d4ff;
+    --pastel-green: #b3f4d5;
+    --carbon: #333333;
+    --spanish-gray: #969a9b;
+    --platinum-gray: #e5e4e2;
+    --desert-storm: #f8f8f8;
+    --charcoal: #1a1a1a;
+    --onyx: #171717;
+}
+
+.theme-dark {
+    --color-primary: var(--bright-gray);
+    --color-secondary: var(--charcoal);
+    --color-tertiary: var(--spanish-gray);
+
+    --color-yellow-primary: var(--lemon-yellow);
+    --color-teal-primary: var(--bright-cyan);
+    --color-teal-secondary: var(--pastel-green);
+
+    --color-gray-primary: var(--spanish-gray);
+    --color-gray-secondary: var(--charcoal);
+    --color-gray-lighter: var(--onyx);
+}
+
+.theme-light {
+    --color-primary: var(--rich-black);
+    --color-secondary: var(--bright-gray);
+    --color-tertiary: var(--carbon);
+
+    --color-yellow-primary: var(--lemon-yellow);
+
+    --color-teal-primary: var(--bright-cyan);
+    --color-teal-secondary: var(--pastel-green);
+
+    --color-gray-primary: var(--spanish-gray);
+    --color-gray-secondary: var(--platinum-gray);
+
+    --color-gray-lighter: var(--desert-storm);
+}
+
 @theme {
     --color-primary: var(--color-primary);
     --color-secondary: var(--color-secondary);
     --color-tertiary: var(--color-tertiary);
 
     --color-yellow-primary: var(--color-yellow-primary);
-
     --color-teal-primary: var(--color-teal-primary);
     --color-teal-secondary: var(--color-teal-secondary);
 

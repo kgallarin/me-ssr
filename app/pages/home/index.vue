@@ -3,6 +3,7 @@
 
   definePageMeta({
     path: '/',
+    layout: 'default',
   });
 
   import PairedText from '@components/motion/hero/PairedText.vue';
@@ -65,7 +66,11 @@
         </div>
       </div>
     </div>
-
-    {{ PAIRED_TEXT_DATA }}
   </div>
 </template>
+
+<style lang="css">
+  .text-shard div {
+    line-height: 1.25;
+  }
+</style>

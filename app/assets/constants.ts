@@ -50,8 +50,8 @@ export const PAIRED_TEXT_DATA: PairedTextData[] = [
     rightTextContent: 'TS/JavaScript',
     containerClass:
       '2xs:mb-12 2xs:text-base xs:mb-12 font-light whitespace-nowrap sm:mb-0 sm:-ml-16 md:-ml-8 md:text-xl lg:-ml-10 lg:text-4xl',
-    leftPairClass: 'mx-auto',
-    rightPairClass: 'mx-auto',
+    leftPairClass: 'ml-auto',
+    rightPairClass: '',
     animatePxLeft: {
       desktop: 140,
       tablet: 80,
@@ -70,8 +70,8 @@ export const PAIRED_TEXT_DATA: PairedTextData[] = [
     rightTextContent: 'State Management',
     containerClass:
       '2xs:text-base whitespace-nowrap sm:-ml-8 md:-ml-5 md:text-xl lg:-ml-20 lg:text-3xl',
-    leftPairClass: 'mx-auto',
-    rightPairClass: 'mx-auto',
+    leftPairClass: 'ml-auto',
+    rightPairClass: '',
     animatePxLeft: {
       desktop: 160,
       tablet: 130,
@@ -88,7 +88,7 @@ export const PAIRED_TEXT_DATA: PairedTextData[] = [
     leftTextContent: 'Animation',
     rightTextContent: 'Web/Mobile',
     containerClass:
-      '2xs:text-base xs:ml-16 xs:w-[290px] whitespace-nowrap sm:-ml-24 sm:w-[660px] md:mx-auto md:-ml-10 md:w-[768px] md:text-lg lg:-ml-36 lg:w-[900px] lg:text-5x',
+      '2xs:text-base xs:ml-16 xs:w-[290px] whitespace-nowrap sm:-ml-24 sm:w-[660px] md:mx-auto md:-ml-10 md:w-[768px] md:text-lg lg:-ml-36 lg:w-[900px] lg:text-5xl',
     leftPairClass: 'mx-auto',
     rightPairClass: 'mx-auto',
     animatePxLeft: {
@@ -108,9 +108,9 @@ export const PAIRED_TEXT_DATA: PairedTextData[] = [
     leftTextContent: 'Communication',
     rightTextContent: 'Structure,Testing',
     containerClass:
-      'xs:-ml-18 2xs:text-base xs:w-[380px] whitespace-nowrap sm:-ml-20 md:mx-auto md:-ml-10 md:w-[658px] md:text-lg lg:-ml-56 lg:w-[980px] lg:text-3xl',
+      'whitespace-nowrap 2xs:text-base xs:w-[380px] sm:-ml-20 md:mx-auto md:-ml-10 md:w-[658px] md:text-lg lg:-ml-56 lg:w-[980px] lg:text-3xl',
     leftPairClass: 'mx-auto',
-    rightPairClass: 'mx-auto',
+    rightPairClass: 'ml-auto',
     animatePxLeft: {
       desktop: 220,
       tablet: 110,
@@ -129,7 +129,7 @@ export const PAIRED_TEXT_DATA: PairedTextData[] = [
     containerClass:
       '2xs:text-base whitespace-nowrap sm:-ml-28 md:mx-auto md:-ml-20 md:w-[730px] md:text-lg lg:-ml-72 lg:w-[1080px] lg:text-4xl',
     leftPairClass: 'mx-auto',
-    rightPairClass: 'mx-auto',
+    rightPairClass: 'ml-auto',
     animatePxLeft: {
       desktop: 240,
       tablet: 100,
@@ -149,7 +149,7 @@ export const PAIRED_TEXT_DATA: PairedTextData[] = [
     containerClass:
       '2xs:text-base whitespace-nowrap sm:-ml-36 sm:w-[680px] md:mx-auto md:-ml-28 md:w-[768px] md:text-lg lg:-ml-96 lg:w-[1250px] lg:text-4xl',
     leftPairClass: 'mx-auto',
-    rightPairClass: 'mx-auto',
+    rightPairClass: 'ml-auto',
     animatePxLeft: {
       desktop: 180,
       tablet: 100,
@@ -160,7 +160,6 @@ export const PAIRED_TEXT_DATA: PairedTextData[] = [
       tablet: 80,
       mobile: 60,
     },
-    darken: true,
   },
 ];
 

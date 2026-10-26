@@ -39,7 +39,8 @@
     }
 
     p, span {
-        @apply text-primary font-proxima font-light leading-loose;
+        @apply text-primary font-proxima font-light;
+        line-height: var(--leading-loose);
     }
 
     .hero-main {
