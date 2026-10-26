@@ -39,11 +39,16 @@
     }
 
     p, span {
-        @apply text-primary font-proxima font-light leading-loose;
+        @apply text-primary font-proxima font-light;
+        line-height: var(--leading-loose);
     }
 
     .hero-main {
         box-shadow: inset 0 -2px 9px -4px #aaaaaa;
+    }
+
+    .text-shard div {
+        line-height: 1.25;
     }
 
 }

@@ -10,7 +10,7 @@
 </script>
 
 <template>
-  <div data-testid="app-root" class="h-full">
+  <div data-testid="app-root" class="theme-light h-full">
     <ConfigProvider>
       <NuxtLayout>
         <NuxtPage />

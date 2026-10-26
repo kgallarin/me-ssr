@@ -16,7 +16,8 @@
   const isHoveredLeft = ref(false);
   const isHoveredRight = ref(false);
 
-  const isDarkTheme = computed(() => 1);
+  // @todo: theme
+  const isDarkTheme = computed(() => 0);
   const getAnimatedColor = (isHovered: boolean) => {
     if (!isDarkTheme.value) {
       return isHovered || computedProps.value.darken ? '#010303' : '#1f2a2d';
@@ -67,7 +68,7 @@
       ></div>
       <motion.div
         data-testid="shard-text-left"
-        :class="[computedProps.classes.leftPair, 'ml-auto', 'font-light']"
+        :class="[computedProps.classes.leftPair, 'font-light']"
         :style="{
           webkitTextStroke: isHoveredLeft
             ? '0.4px currentColor'
@@ -114,7 +115,12 @@
               : '0px currentColor',
           transition: '-webkit-text-stroke 0.8s ease-out',
         }"
-        :initial="{ x: 0, color: '#E5E4E2', fontWeight: 300, opacity: 1 }"
+        :initial="{
+          x: 0,
+          color: computedProps.darken ? '#010303' : '#E5E4E2',
+          fontWeight: 300,
+          opacity: 1,
+        }"
         :animate="{
           x: isHoveredRight ? computedProps.animatePx.right : 0,
           color: getAnimatedColor(isHoveredRight),

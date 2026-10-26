@@ -25,8 +25,8 @@ export const textPairSeeder = (
     },
     classes: {
       container: data.containerClass,
-      leftPair: 'mx-auto',
-      rightPair: 'mx-auto',
+      leftPair: data.leftPairClass,
+      rightPair: data.rightPairClass,
     },
     animatePx: {
       left: resolvedAnimatedPx.left,
