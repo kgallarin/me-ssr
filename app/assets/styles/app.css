@@ -3,6 +3,8 @@
 @import "./fonts.css";
 @import "./colors.css";
 
+@import "./vendor_overrides/splider.css";
+
 @import "nav.css";
 
  /*Transition for colors, backgrounds, borders, fills, and strokes*/
