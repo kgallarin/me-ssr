@@ -1,8 +1,8 @@
 <script setup lang="ts">
-  import type { NullableAnimatedBg } from '@/types/animations.ts';
+  import type { NullableAnimatedBg } from '@/types/Animations.ts';
+
   import { motion } from 'motion-v';
   import { computed } from 'vue';
-
   const props = defineProps<{
     config: NullableAnimatedBg;
   }>();

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-  import PairedText from '@components/motion/hero/PairedText.vue';
   import SplitPairHeaderTexts from '@app/partials/home/split-effect/SplitPairHeaderTexts.vue';
-  import SplitSubjectBgImages from '~/partials/home/split-effect/SplitSubjectBgImages.vue';
-  import StackedBg from '@components/motion/hero/StackedBg.vue';
+  import PairedText from '@components/motion/landing-hero/PairedText.vue';
+  import StackedBg from '@components/motion/landing-hero/StackedBg.vue';
   import { useHeroAnimation } from '~/composables/home/useHeroAnimation.ts';
+  import SplitSubjectBgImages from '~/partials/home/split-effect/SplitSubjectBgImages.vue';
 
   const { hoverablePairedTexts, currentHover, swooshBgPair1, swooshBgPair2 } =
     useHeroAnimation();
@@ -30,7 +30,7 @@
       :hover-direction="currentHover"
     />
 
-    <!-- Subject BG(me) Images for Split Effect -->
+    <!-- Subject BG (me) Images for Split Effect -->
     <div
       class="align-center relative z-10 flex h-[450px] w-full flex-col justify-center overflow-hidden text-black md:h-auto lg:h-[800px]"
     >

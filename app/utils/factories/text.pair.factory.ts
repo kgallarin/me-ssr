@@ -1,4 +1,4 @@
-import type { IPairedText, PairedTextData } from '@/types/animations';
+import type { IPairedText, PairedTextData } from '@/types/Animations.ts';
 
 export const textPairSeeder = (
   data: PairedTextData,

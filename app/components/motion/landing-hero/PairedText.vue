@@ -1,9 +1,8 @@
 <script setup lang="ts">
   import { computed, ref } from 'vue';
 
+  import type { IPairedText } from '@/types/Animations.ts';
   import { motion } from 'motion-v';
-  import type { IPairedText } from '@/types/animations.ts';
-  import { useAppStore } from '@store/modules/app.ts';
 
   const props = defineProps<{
     pairedTextsProps: IPairedText;

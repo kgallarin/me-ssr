@@ -1,5 +1,5 @@
-import type { AppTheme } from '@/types/app.ts';
-import type { Nullable } from '@/types/utils';
+import type { AppTheme } from '@/types/App.ts';
+import type { Nullable } from '@/types/Utils';
 import type { TargetAndTransition, ValueAnimationTransition } from 'motion-v';
 
 export interface AnimatedBg {

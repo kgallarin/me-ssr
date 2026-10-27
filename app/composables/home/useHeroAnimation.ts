@@ -1,4 +1,4 @@
-import type { IPairedText, PairedTextData } from '@/types/animations.ts';
+import type { IPairedText, PairedTextData } from '@/types/Animations.ts';
 import { PAIRED_TEXT_DATA } from '@app/assets/constants';
 import { useAppStore } from '@store/modules/app.ts';
 import { useHoverAnimationState } from '~/composables/home/useHoverAnimationState.ts';

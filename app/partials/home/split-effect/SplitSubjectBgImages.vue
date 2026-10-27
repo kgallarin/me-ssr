@@ -1,6 +1,6 @@
 <script setup lang="ts">
+  import type { HoverDirections } from '@/types/Animations.ts';
   import { motion } from 'motion-v';
-  import type { HoverDirections } from '@/types/animations.ts';
 
   withDefaults(
     defineProps<{

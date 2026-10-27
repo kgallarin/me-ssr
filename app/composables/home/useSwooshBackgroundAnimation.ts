@@ -1,4 +1,4 @@
-import type { StackedAnimatedBg } from '@/types/animations.ts';
+import type { StackedAnimatedBg } from '@/types/Animations.ts';
 import {
   GRAY_AND_BLUE_SWOOSH,
   GREEN_AND_YELLOW_SWOOSH,
