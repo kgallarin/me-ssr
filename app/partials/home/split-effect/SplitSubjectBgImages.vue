@@ -13,7 +13,6 @@
 </script>
 
 <template>
-  <!--  Header Split Text Pair end  -->
   <div
     class="pointer-events-none absolute inset-0 z-40 h-full w-full overflow-hidden"
   >

@@ -12,18 +12,6 @@ export interface Link {
   class?: string;
 }
 
-export interface HeroImageTextShardProps {
-  textLeft: string;
-  textRight: string;
-  textLeftClasses?: string;
-  textRightClasses?: string;
-  animateLeftInPixels?: number;
-  animateRightInPixels?: number;
-  isAnyHoveredLeft?: boolean;
-  isAnyHoveredRight?: boolean;
-  darken?: boolean;
-}
-
 export interface BaseImageProps {
   src: string;
   alt: string;
