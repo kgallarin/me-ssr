@@ -7,6 +7,24 @@
   //   ogSiteName: 'Kevin Gallarin',
   //   robots: 'index, follow',
   // });
+
+  useHead({
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Person',
+          'name': 'Kevin Gallarin | Frontend, Fullstack capable',
+          'url': 'https://kgallarin.com',
+          'sameAs': [
+            'https://github.com/kgallarin',
+            'https://www.linkedin.com/in/kgallarin',
+          ],
+        }),
+      },
+    ],
+  })
 </script>
 
 <template>
