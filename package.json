@@ -7,9 +7,12 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
+    "lint": "eslint . --fix",
+    "lint:check": "eslint .",
     "postinstall": "nuxt prepare",
     "tsc": "vue-tsc --noEmit",
-    "tsc:watch": "vue-tsc --watch"
+    "tsc:watch": "vue-tsc --watch",
+    "ci:checks": "npm run tsc && npm run lint && npm run build"
   },
   "dependencies": {
     "@fortawesome/free-regular-svg-icons": "^7.3.1",

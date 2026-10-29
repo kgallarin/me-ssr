@@ -31,6 +31,13 @@ export default defineNuxtConfig({
 
   modules: ['@pinia/nuxt', 'pinia-plugin-persistedstate/nuxt', '@nuxt/image'],
 
+  runtimeConfig: {
+    public: {
+      appUrl: '',
+    },
+    graphqlUrl: process.env.GRAPHQL_URL || 'http://kgdev-backend.test/graphql',
+  },
+
   vite: {
     plugins: [tailwindcss()],
   },

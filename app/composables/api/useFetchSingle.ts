@@ -1,6 +1,7 @@
 import { type UseFetchOptions, useFetch } from '#app';
 import type {
   ApiResponse,
+  ApiResponseError
 } from '@/types/Api.ts';
 
 export function useApiFetchSingle<TNode, TPayload>(
@@ -25,7 +26,7 @@ export function useApiFetchSingle<TNode, TPayload>(
     item,
     loading: computed((): boolean => status.value === 'pending'),
     status,
-    graphQLErrors: computed(() => data.value?.errors ?? []),
+    graphQLErrors: computed((): ApiResponseError[] => data.value?.errors ?? []),
     fetchError: error,
     refresh,
     execute

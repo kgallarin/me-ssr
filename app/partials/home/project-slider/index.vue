@@ -1,11 +1,11 @@
 <script setup lang="ts">
-  import type { CarouselContent } from '@/types/Responses';
+  import type { Project } from '@/types/Projects.ts';
   import BaseSplideSlide from '@components/base/BaseSplideSlide.vue';
   import BaseSplider from '@components/base/BaseSplider.vue';
   import { FontAwesomeIcon as FaIcon } from '@fortawesome/vue-fontawesome';
 
   defineProps<{
-    projects?: CarouselContent[];
+    projects?: (Project | null | undefined)[];
     theme?: string;
   }>();
 </script>
@@ -44,7 +44,7 @@
     >
       <base-splide-slide
         v-for="project in projects"
-        :key="project.title"
+        :key="project?.title"
         class="px-2 pb-12"
       >
         <div
@@ -55,11 +55,11 @@
           ]"
         >
           <base-splider
-            :items="project.images.map((img) => img.url)"
+            :items="project?.images.map((img) => img.url)"
             aspect-ratio="max-h-[215px] min-h-[215px]"
-            :autoplay="project.carouselSettings?.autoplay"
-            :show-indicators="project.carouselSettings?.showIndicators"
-            :show-arrows="project.carouselSettings?.showArrows"
+            :autoplay="project?.carouselSettings?.autoplay"
+            :show-indicators="project?.carouselSettings?.showIndicators"
+            :show-arrows="project?.carouselSettings?.showArrows"
             :items-to-show="1"
             :drag="false"
           />
@@ -68,19 +68,19 @@
             :class="[theme === 'light' ? 'bg-white' : 'bg-gray-lighter']"
           >
             <h2 class="mb-2 font-proxima text-lg font-medium text-primary">
-              {{ project.title }}
+              {{ project?.title }}
               <fa-icon
-                v-if="project.order === 1"
+                v-if="project?.order === 1"
                 :icon="['fab', 'github']"
                 :class="[theme === 'light' ? 'text-primary' : 'text-white']"
               />
             </h2>
             <p class="inline font-acumin text-xs font-light">
-              {{ project.description }}
+              {{ project?.description }}
             </p>
             <a
-              v-if="project.link"
-              :href="project.link"
+              v-if="project?.link"
+              :href="project?.link"
               target="_blank"
               class="inline-block pl-1 font-acumin text-xs font-light text-blue-400 underline"
             >
@@ -88,17 +88,16 @@
             </a>
           </div>
 
-          <!--          @todo: backend icons-->
-          <!--          <div class="mt-auto grid grid-cols-8 gap-1 p-4">-->
-          <!--            <fa-icon-->
-          <!--              data-testid="project-icon"-->
-          <!--              v-for="(ico, index) in project.icon"-->
-          <!--              :key="index"-->
-          <!--              :icon="ico?.icon"-->
-          <!--              class="text-xl"-->
-          <!--              :class="ico?.color"-->
-          <!--            />-->
-          <!--          </div>-->
+          <div class="mt-auto grid grid-cols-8 gap-1 p-4">
+            <fa-icon
+              v-for="(ico, index) in project?.icon"
+              :key="index"
+              data-testid="project-icon"
+              :icon="ico?.icon"
+              class="text-xl"
+              :class="ico?.color"
+            />
+          </div>
         </div>
       </base-splide-slide>
     </base-splider>
