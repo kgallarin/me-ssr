@@ -1,21 +1,12 @@
 {
   // https://nuxt.com/docs/guide/concepts/typescript
   "extends": "./.nuxt/tsconfig.json",
+  "exclude": ["tests/e2e", "node_modules", ".output"],
   "include": [
     "./.nuxt/nuxt.d.ts",
     "./app/**/*",
     "./server/**/*",
     "./tests/**/*.ts",
     "./types/**/*.ts"
-  ],
-  "paths": {
-    "@/*": ["./*"],
-    "@app/*": ["./app/*"],
-    "@components/*": ["./app/components/*"],
-    "@pages/*": ["./app/pages/*"],
-    "@partials/*": ["./app/partials/*"],
-    "@store/*": ["./app/stores/*"],
-    "@utils/*": ["./utils/*"]
-  },
-  "exclude": ["tests/e2e", "node_modules", ".output"]
+  ]
 }

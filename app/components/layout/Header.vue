@@ -1,6 +1,4 @@
 <script setup lang="ts">
-  import { computed } from 'vue';
-
   import type { NavLink } from '@/types/Props.ts';
   import BaseContainer from '@components/base/BaseContainer.vue';
   import AnimatedLogo from '@components/motion/AnimatedLogo.vue';

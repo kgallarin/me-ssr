@@ -14,7 +14,22 @@ export interface ApiResponseError {
   extensions?: GraphQLErrorExtension;
 }
 
+export interface ApiPageInfo {
+  total: number;
+  count: number;
+  currentPage: number;
+  lastPage: number;
+  hasMorePages: boolean;
+
+  hasNextPage: boolean;
+  endCursor: string | null;
+}
 export interface ApiResponse<T = unknown> {
   data?: T | null;
   errors?: ApiResponseError[];
+}
+
+export interface PaginatedResponse<T> {
+  data: T[];
+  pageInfo: ApiPageInfo;
 }
