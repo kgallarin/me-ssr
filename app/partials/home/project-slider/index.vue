@@ -94,8 +94,8 @@
               :key="index"
               data-testid="project-icon"
               :icon="ico?.icon"
+              :style="{ color: ico?.color }"
               class="text-xl"
-              :class="ico?.color"
             />
           </div>
         </div>
@@ -103,3 +103,9 @@
     </base-splider>
   </base-container>
 </template>
+
+<style>
+  .svg-inline--fa {
+    fill: currentColor;
+  }
+</style>

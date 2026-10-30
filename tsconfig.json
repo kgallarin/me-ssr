@@ -1,5 +1,8 @@
 {
   // https://nuxt.com/docs/guide/concepts/typescript
+  "compilerOptions": {
+    "noEmit": true
+  },
   "extends": "./.nuxt/tsconfig.json",
   "exclude": ["tests/e2e", "node_modules", ".output"],
   "include": [

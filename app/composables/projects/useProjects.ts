@@ -1,6 +1,6 @@
 import type { PaginatedResponse } from '@/types/Api.ts';
 import type { Project, ProjectsPayload } from '@/types/Projects.ts';
-import { useApiFetchList } from '~/composables/api/useFetchList.ts';
+import { usePaginatedFetchList } from '~/composables/api/usePaginatedFetchList.ts';
 
 export const useProjects = (first: number = 10) => {
   const url = computed((): string => '/projects');
@@ -17,7 +17,7 @@ export const useProjects = (first: number = 10) => {
     status,
     refresh,
     execute,
-  } = useApiFetchList<Project, ProjectsPayload>(
+  } = usePaginatedFetchList<Project, ProjectsPayload>(
     url,
     (payload: ProjectsPayload): PaginatedResponse<Project> => payload.projects,
     {

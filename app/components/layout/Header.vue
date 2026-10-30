@@ -22,7 +22,8 @@
     (e: 'openSidebar'): void;
   }>();
 
-  // const toggleTheme = () => emit('toggleTheme');
+  // @todo: toggleTheme()
+  const toggleTheme = () => emit('toggleTheme');
 </script>
 
 <template>
@@ -46,35 +47,34 @@
                 {{ item.label }}
               </NuxtLink>
             </li>
-
-            <!-- @todo dynamic:content -->
+            <!-- @todo integrate iconLinks -->
             <!--            <li-->
             <!--              v-for="(link, index) in iconLinks"-->
             <!--              :key="link.id"-->
             <!--              :class="[index === 0 ? 'socials pl-8' : 'pl-0']"-->
             <!--            >-->
-            <!--              <a :href="link.url" target="_blank">-->
+            <!--              <nuxt-link :href="link.url" target="_blank">-->
             <!--                <fa-icon :icon="link.icon" class="text-2xl" />-->
-            <!--              </a>-->
+            <!--              </nuxt-link>-->
             <!--            </li>-->
 
-            <!--            <li class="theme-switcher pl-4">-->
-            <!--              <button-->
-            <!--                class="theme-toggle flex items-center text-gray-300 transition-colors hover:text-white"-->
-            <!--                :aria-label="-->
-            <!--                  theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'-->
-            <!--                "-->
-            <!--                @click="toggleTheme"-->
-            <!--              >-->
-            <!--                <fa-icon-->
-            <!--                  :icon="['far', 'lightbulb']"-->
-            <!--                  :class="[-->
-            <!--                    theme !== 'dark' ? 'text-yellow-primary' : 'text-gray-500',-->
-            <!--                    'text-2xl',-->
-            <!--                  ]"-->
-            <!--                />-->
-            <!--              </button>-->
-            <!--            </li>-->
+            <li class="theme-switcher pl-4">
+              <button
+                class="theme-toggle flex items-center text-gray-300 transition-colors hover:text-white"
+                :aria-label="
+                  theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
+                "
+                @click="toggleTheme"
+              >
+                <fa-icon
+                  :icon="['far', 'lightbulb']"
+                  :class="[
+                    theme !== 'dark' ? 'text-yellow-primary' : 'text-gray-500',
+                    'text-2xl',
+                  ]"
+                />
+              </button>
+            </li>
           </ul>
         </nav>
 
