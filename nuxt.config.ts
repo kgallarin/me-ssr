@@ -35,7 +35,12 @@ export default defineNuxtConfig({
     public: {
       appUrl: '',
     },
-    graphqlUrl: process.env.GRAPHQL_URL || 'http://kgdev-backend.test/graphql',
+    graphqlUrl: process.env.NUXT_GRAPHQL_URL || 'http://kgdev-backend.test/graphql',
+  },
+
+  typescript: {
+    strict: true,
+    typeCheck: true,
   },
 
   vite: {

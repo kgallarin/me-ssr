@@ -1,14 +1,9 @@
-import { type UseFetchOptions, useFetch } from '#app';
-import type {
-  ApiPageInfo,
-  ApiResponse,
-  ApiResponseError,
-  PaginatedResponse,
-} from '@/types/Api.ts';
+import type { UseFetchOptions } from '#app';
+import type { ApiResponse, ApiResponseError } from '@/types/Api.ts';
 
 export function useApiFetchList<TNode, TPayload>(
-  url: string | MaybeRefOrGetter<string>,
-  extract: (payload: TPayload) => PaginatedResponse<TNode>,
+  url: MaybeRefOrGetter<string>,
+  extract: (payload: TPayload) => TNode[],
   options?: UseFetchOptions<ApiResponse<TPayload>>,
 ) {
   const { $api } = useNuxtApp();
@@ -22,36 +17,16 @@ export function useApiFetchList<TNode, TPayload>(
     },
   );
 
-  const paginator = computed((): PaginatedResponse<TNode> | null => {
-    if (!data.value?.data) return null;
+  const items = computed<TNode[]>(() => {
+    if (!data.value?.data) return [];
     return extract(data.value.data);
-  });
-
-  const items = computed((): (TNode | undefined | null)[] => {
-    const paginatorValue = paginator.value;
-    if (!paginatorValue) return [];
-
-    return paginatorValue.data.map((item: TNode) => item);
-  });
-
-  const pageInfoWithEndCursor = computed((): ApiPageInfo | null => {
-    const info = paginator.value?.pageInfo;
-    if (!info) return null;
-
-    return {
-      ...info,
-      hasNextPage: info.hasMorePages,
-      endCursor: String(info.currentPage),
-    };
   });
 
   return {
     items,
-    pageInfo: pageInfoWithEndCursor,
-    graphQLErrors: computed((): ApiResponseError[] => data.value?.errors ?? []),
-    fetchError: error,
-    status,
     loading: computed((): boolean => status.value === 'pending'),
+    status,
+    error: error as Ref<ApiResponseError | null>,
     refresh,
     execute,
   };
