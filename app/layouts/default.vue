@@ -4,22 +4,22 @@
   const defaultNav = [
     {
       label: 'home',
-      to: 'home',
+      to: '/',
       icon: 'chevron-right',
     },
     {
       label: 'about',
-      to: 'about',
+      to: '/about',
       icon: 'chevron-right',
     },
     {
       label: 'me',
-      to: 'me',
+      to: '/me',
       icon: 'chevron-right',
     },
     {
       label: 'contact',
-      to: 'contact',
+      to: '/contact',
       icon: 'chevron-right',
     },
   ];

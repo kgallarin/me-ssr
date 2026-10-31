@@ -37,12 +37,13 @@
     :class="[props.imageContainerClass, props.rounded]"
   >
     <div
-      v-if="!isLoaded && props.showLoader"
+      v-if="(!isLoaded || !props.src) && props.showLoader"
       class="skeleton absolute inset-0 z-10 w-full"
       :class="props.rounded"
     />
 
     <NuxtImg
+      v-if="props.src"
       ref="imgRef"
       :src="props.src"
       :alt="props.alt"

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import type { HoverDirections } from '@/types/Animations.ts';
+  import type { HoverDirections } from '@/types/SplitHeroAnimations.ts';
   import { motion } from 'motion-v';
 
   withDefaults(

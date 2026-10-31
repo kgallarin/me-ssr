@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { computed, ref } from 'vue';
 
-  import type { IPairedText } from '@/types/Animations.ts';
+  import type { IPairedText } from '@/types/SplitHeroAnimations.ts';
   import { motion } from 'motion-v';
 
   const props = defineProps<{
@@ -26,8 +26,6 @@
       return computedProps.value.darken && !isHovered ? '#fefefe' : '#fff';
     }
   };
-
-  // const animateOffsetLeft = computed(() => appStore.queryBreakpoints(computedProps.value.animatePx.))
 
   const handleMouseOverLeft = () => {
     isHoveredLeft.value = true;

@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { computed } from 'vue';
 
-  import type { ITextHeader } from '@/types/Animations.ts';
+  import type { ITextHeader } from '@/types/SplitHeroAnimations.ts';
   import { motion } from 'motion-v';
 
   const props = defineProps<{

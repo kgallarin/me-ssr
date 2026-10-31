@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import type { StackedAnimatedBg } from '@/types/Animations.ts';
+  import type { StackedAnimatedBg } from '@/types/SplitHeroAnimations.ts';
   import AnimatedBackgroundImage from '@components/motion/landing-hero/AnimatedBackgroundImage.vue';
 
   const props = withDefaults(

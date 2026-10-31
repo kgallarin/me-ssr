@@ -3,6 +3,7 @@
   import BaseContainer from '@components/base/BaseContainer.vue';
   import AnimatedLogo from '@components/motion/AnimatedLogo.vue';
   import ScalesOnPress from '@components/motion/ScalesOnPress.vue';
+  import { useIconLinks } from '~/composables/icon-links/useIconLinks.ts';
 
   withDefaults(
     defineProps<{
@@ -22,7 +23,10 @@
     (e: 'openSidebar'): void;
   }>();
 
-  // @todo: toggleTheme()
+  const { icons } = useIconLinks();
+  const iconLinks = computed(() =>
+    icons.value.filter((link) => link.name === 'linkedIn' || link.name === 'github'),
+  );
   const toggleTheme = () => emit('toggleTheme');
 </script>
 
@@ -40,23 +44,22 @@
         <nav class="hidden md:block">
           <ul class="text-md flex gap-8">
             <li v-for="item in nav" :key="item.label">
-              <NuxtLink
-                :to="{ name: item.to }"
+              <nuxt-link
+                :to="{ path: item.to }"
                 class="nav-link font-acumin flex items-center gap-2 font-normal hover:text-gray-300"
               >
                 {{ item.label }}
-              </NuxtLink>
+              </nuxt-link>
             </li>
-            <!-- @todo integrate iconLinks -->
-            <!--            <li-->
-            <!--              v-for="(link, index) in iconLinks"-->
-            <!--              :key="link.id"-->
-            <!--              :class="[index === 0 ? 'socials pl-8' : 'pl-0']"-->
-            <!--            >-->
-            <!--              <nuxt-link :href="link.url" target="_blank">-->
-            <!--                <fa-icon :icon="link.icon" class="text-2xl" />-->
-            <!--              </nuxt-link>-->
-            <!--            </li>-->
+            <li
+              v-for="(link, index) in iconLinks"
+              :key="link.id"
+              :class="[index === 0 ? 'socials pl-8' : 'pl-0']"
+            >
+              <nuxt-link :href="link.url" target="_blank">
+                <fa-icon :icon="link.icon" class="text-2xl" />
+              </nuxt-link>
+            </li>
 
             <li class="theme-switcher pl-4">
               <button
