@@ -1,8 +1,9 @@
 <script setup lang="ts">
-  import type { NullableAnimatedBg } from '@/types/Animations.ts';
-
-  import { motion } from 'motion-v';
   import { computed } from 'vue';
+
+  import type { NullableAnimatedBg } from '@/types/SplitHeroAnimations.ts';
+  import { motion } from 'motion-v';
+
   const props = defineProps<{
     config: NullableAnimatedBg;
   }>();

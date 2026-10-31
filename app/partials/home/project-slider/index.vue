@@ -63,6 +63,7 @@
             :items-to-show="1"
             :drag="false"
           />
+          <!-- @todo: project card? -->
           <div
             class="relative p-4 text-primary"
             :class="[theme === 'light' ? 'bg-white' : 'bg-gray-lighter']"

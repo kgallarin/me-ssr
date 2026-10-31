@@ -1,4 +1,4 @@
-import type { HoverDirections } from '@/types/Animations.ts';
+import type { HoverDirections } from '@/types/SplitHeroAnimations.ts';
 
 export const useHoverAnimationState = () => {
   const isAnyHoveredLeft = ref(false);

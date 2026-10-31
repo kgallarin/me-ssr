@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import type { HoverDirections } from '@/types/Animations.ts';
+  import type { HoverDirections } from '@/types/SplitHeroAnimations.ts';
   import TextHeaders from '@components/motion/landing-hero/TextHeaders.vue';
 
   const props = defineProps<{

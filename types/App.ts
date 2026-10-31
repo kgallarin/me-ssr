@@ -1,6 +1,17 @@
-import type { Image } from '@/types/Responses';
-
 export type AppTheme = 'light' | 'dark';
+
+export interface ParsedPartSafeHtml {
+  type: 'br' | 'a' | 'strong' | 'span' | 'text';
+  href?: string;
+  class?: string;
+  content?: string;
+  text?: string;
+}
+
+export interface Image {
+  url: string;
+  alt: string;
+}
 
 // splider
 export interface SpliderOptions {
@@ -26,11 +37,4 @@ export interface CarouselConfig {
   autoplay: boolean;
   showIndicators: boolean;
   showArrows: boolean;
-}
-
-// icons
-type FaIconSingle = string[];
-export interface FontAwesomeIconObject {
-  icon: FaIconSingle;
-  color: string;
 }

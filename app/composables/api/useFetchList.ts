@@ -17,7 +17,7 @@ export function useApiFetchList<TNode, TPayload>(
     },
   );
 
-  const items = computed<TNode[]>(() => {
+  const items = computed<TNode[]>((): TNode[] => {
     if (!data.value?.data) return [];
     return extract(data.value.data);
   });

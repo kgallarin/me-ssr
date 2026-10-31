@@ -1,11 +1,7 @@
 <script setup lang="ts">
-
+  import Whoami from '@partials/about/whoami.vue';
 </script>
 
 <template>
-  about page.
+  <whoami />
 </template>
-
-<style scoped>
-
-</style>
