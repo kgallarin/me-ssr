@@ -38,3 +38,8 @@ export interface CarouselConfig {
   showIndicators: boolean;
   showArrows: boolean;
 }
+
+export interface UseLiveTimeOptions {
+  timeZone?: string;
+  locale?: string;
+}

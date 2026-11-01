@@ -17,6 +17,8 @@
   >
     <animated-hero-section />
 
-    <project-slider :projects="projects" theme="light" />
+    <div>
+      <project-slider :projects="projects" theme="light" />
+    </div>
   </div>
 </template>

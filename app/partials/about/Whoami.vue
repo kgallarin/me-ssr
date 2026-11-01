@@ -1,11 +1,12 @@
 <script setup lang="ts">
-  // import BaseSafeHtml from '@components/base/BaseSafeHtml.vue';
+  import type { PageTextContent } from '@/types/PageTextContent.ts';
   import BaseSplider from '@components/base/BaseSplider.vue';
   import ScrollReveal from '@components/motion/ScrollReveal.vue';
   import { useAppStore } from '@store/modules/app.ts';
 
   withDefaults(
     defineProps<{
+      content: PageTextContent | null;
       animateOnce?: boolean;
       animationOnlyScrollDown?: boolean;
     }>(),
@@ -14,12 +15,9 @@
       animationOnlyScrollDown: false,
     },
   );
-  const { fetchContentSingle } = useFetchContent();
 
   const appStore = useAppStore();
   const responsiveQueries = computed(() => appStore.queryBreakpoints(8, 4, 2));
-
-  const whoamiContents = fetchContentSingle('whoami');
 </script>
 
 <template>
@@ -35,15 +33,12 @@
             :animate-only-scroll-down="animationOnlyScrollDown"
           >
             <h1 class="mb-4 text-6xl lowercase tracking-tight text-tertiary">
-              {{ whoamiContents.item.value?.title }}
+              {{ content?.title }}
             </h1>
-            <p class="mb-4 font-acumin text-xl font-light">
-              <base-safe-html :html="whoamiContents.item.value?.subtitle" />
+            <p class="mb-4 font-acumin text-xl font-light" i>
+              <base-safe-html :html="content?.subtitle" />
             </p>
-            <div
-              v-for="(section, index) in whoamiContents.item.value?.content"
-              :key="index"
-            >
+            <div v-for="(section, index) in content?.content" :key="index">
               <h2 v-if="section.title" class="mb-2 text-2xl font-semibold">
                 {{ section.title }}
               </h2>
@@ -63,8 +58,8 @@
             <base-image
               class="min-h-[300px] object-cover shadow-lg"
               rounded="rounded-md"
-              :src="whoamiContents.item?.value?.heroImages?.[0]?.url ?? ''"
-              :alt="whoamiContents.item?.value?.heroImages?.[0]?.alt ?? ''"
+              :src="content?.heroImages?.[0]?.url ?? ''"
+              :alt="content?.heroImages?.[0]?.alt ?? ''"
             />
           </scroll-reveal>
         </div>
@@ -78,7 +73,7 @@
           :animate-only-scroll-down="animationOnlyScrollDown"
         >
           <base-splider
-            :items="whoamiContents.item?.value?.socialImages"
+            :items="content?.socialImages"
             :autoplay="true"
             :interval="8000"
             :show-indicators="false"
