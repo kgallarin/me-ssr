@@ -29,8 +29,12 @@ export const useAppStore = defineStore('app', () => {
     return mobileValue;
   };
 
+  const isDesktop = computed((): boolean => breakpoints.greaterOrEqual('lg').value);
+
   return {
     breakpoints,
     queryBreakpoints,
+
+    isDesktop,
   };
 });

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import Footer from '@components/layout/Footer.vue';
   import Header from '@components/layout/Header.vue';
 
   const defaultNav = [
@@ -23,6 +24,10 @@
       icon: 'chevron-right',
     },
   ];
+
+  const { timeNow, yearNow } = useLiveTime({
+    timeZone: 'Asia/Singapore',
+  });
 </script>
 
 <template>
@@ -40,5 +45,12 @@
     <div class="flex flex-1 flex-col">
       <slot />
     </div>
+
+    <Footer
+      ref="footerRef"
+      :nav="defaultNav"
+      :year-now="yearNow"
+      :time-now="timeNow"
+    />
   </div>
 </template>
