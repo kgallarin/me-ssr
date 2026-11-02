@@ -14,7 +14,6 @@ export default defineNuxtConfig({
       },
     },
   },
-  ssr: false,
 
   alias: {
     '@': fileURLToPath(new URL('./', import.meta.url)),

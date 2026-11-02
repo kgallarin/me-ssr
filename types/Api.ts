@@ -1,7 +1,14 @@
+import type { ValidationErrorItem } from '@/types/Forms.ts';
+
 export interface GraphQLErrorExtension {
   category?: string;
   validation?: Record<string, string[]>;
   [key: string]: unknown;
+}
+
+export interface GraphqlResponseBody<T = unknown> {
+  data?: T | null;
+  errors: ApiResponseError[];
 }
 
 export interface ApiResponseError {
@@ -12,6 +19,14 @@ export interface ApiResponseError {
   }[];
   path?: (string | number)[];
   extensions?: GraphQLErrorExtension;
+}
+
+// errors from proxy
+export interface ApiThrownError {
+  status?: number;
+  statusCode?: number;
+  message?: string;
+  data?: ValidationErrorItem[] | Record<string, string[] | string> | unknown;
 }
 
 export interface ApiPageInfo {
