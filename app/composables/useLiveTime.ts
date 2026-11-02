@@ -20,9 +20,12 @@ export function useLiveTime(options: UseLiveTimeOptions = {}) {
 
   let liveTimer: NodeJS.Timeout | null = null;
 
-  liveTimer = setInterval(() => {
-    dateNow.value = new Date();
-  }, 1000);
+  // Only run interval on the client side (browser) to prevent SSR 500 errors
+  if (import.meta.client) {
+    liveTimer = setInterval(() => {
+      dateNow.value = new Date();
+    }, 1000);
+  }
 
   onUnmounted(() => {
     if (liveTimer) {

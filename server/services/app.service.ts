@@ -21,6 +21,37 @@ export function createAppFetch(event: H3Event): $Fetch {
           data: errors,
         });
       }
+
+      const body = response._data;
+      // Standard top-level GraphQL protocol errors
+      const bodyErrors = body?.errors;
+      if (bodyErrors && bodyErrors.length > 0) {
+        throw createError({
+          statusCode: 400,
+          statusMessage: bodyErrors[0].message || 'API Error',
+          data: bodyErrors,
+        });
+      }
+
+      // Check for success: false inside mutation data
+      const data = body?.data;
+      if (data) {
+        for (const key of Object.keys(data)) {
+          const result = data[key];
+          if (
+            result &&
+            typeof result === 'object' &&
+            'success' in result &&
+            result.success === false
+          ) {
+            throw createError({
+              statusCode: 422,
+              statusMessage: result.message || 'Operation failed',
+              data: result,
+            });
+          }
+        }
+      }
     },
   });
 }

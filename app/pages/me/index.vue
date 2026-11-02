@@ -2,11 +2,11 @@
   import { computed } from 'vue';
 
   import BaseSafeHtml from '@components/base/BaseSafeHtml.vue';
-  import Why from '@partials/story/why.vue';
+  import WhyFrontend from '@partials/story/WhyFrontend.vue';
 
   const { fetchContentSingle } = useFetchContent();
 
-  const whyFrontendFetch = fetchContentSingle('whoami');
+  const whyFrontendFetch = fetchContentSingle('how_me');
   const whyFrontendContent = computed(() => whyFrontendFetch.item?.value);
 
   const gistsContentFetch = fetchContentSingle('gists');
@@ -23,7 +23,7 @@
 </script>
 
 <template>
-  <why
+  <why-frontend
     :title="whyFrontendContent?.title"
     :text="whyFrontendContent?.content"
     :image="whyFrontendContent?.heroImages[0]"

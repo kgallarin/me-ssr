@@ -27,7 +27,6 @@ export function useApi(overrides: FetchOptions = {}): $Fetch {
 
     async onResponseError({ response }) {
       const error = response._data;
-
       switch (response.status) {
         case 401:
           throw createError({
