@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import type { PageTextContent } from '@/types/PageTextContent.ts';
   import ChartedSkills from '@partials/about/ChartedSkills.vue';
   import GraphedSkills from '@partials/about/GraphedSkills.vue';
   import RandomFacts from '@partials/about/RandomFacts.vue';
@@ -6,52 +7,57 @@
   import Whoami from '@partials/about/Whoami.vue';
   import { useRecommendations } from '~/composables/recommendations/useRecommendations.ts';
 
-  const { fetchContentSingle } = useFetchContent();
+  const { fetchContentManyByKeys } = useFetchContent();
 
-  const whoamiFetch = fetchContentSingle('whoami');
-  const whoamiContents = computed(() => whoamiFetch.item?.value);
+  const { items: contents } = fetchContentManyByKeys([
+    'whoami',
+    'charted_skills',
+    'random_facts',
+    'graphed_skills',
+    'recommendations',
+  ]);
 
-  const chartedSkillsFetch = fetchContentSingle('charted_skills');
-  const chartedSkillsContent = computed(() => chartedSkillsFetch.item?.value);
+  function getContentsByKey(key: string): PageTextContent | null {
+    return contents.value?.find((content) => content.key === key) ?? null;
+  }
 
-  const randomFactsFetch = fetchContentSingle('random_facts');
-  const randomFactsContent = computed(() => randomFactsFetch.item?.value);
-
-  const graphedSkillsFetch = fetchContentSingle('graphed_skills');
-  const graphedSkillsContent = computed(() => graphedSkillsFetch.item?.value);
-
-  const recommendationFetch = fetchContentSingle('recommendations');
-  const recommendationsContent = computed(() => recommendationFetch.item?.value);
+  const whoamiContents = computed(() => getContentsByKey('whoami'));
+  const chartedSkillsContent = computed(() => getContentsByKey('charted_skills'));
+  const randomFactsContent = computed(() => getContentsByKey('random_facts'));
+  const graphedSkillsContent = computed(() => getContentsByKey('graphed_skills'));
+  const recommendationsContent = computed(() => getContentsByKey('recommendations'));
 
   const { testimonials } = useRecommendations();
 </script>
 
 <template>
-  <whoami :content="whoamiContents" animate-once animation-only-scroll-down />
+  <div class="bg-base-container">
+    <whoami :content="whoamiContents" animate-once animation-only-scroll-down />
 
-  <charted-skills
-    :content="chartedSkillsContent"
-    animate-once
-    animation-only-scroll-down
-  />
+    <charted-skills
+      :content="chartedSkillsContent"
+      animate-once
+      animation-only-scroll-down
+    />
 
-  <random-facts
-    :content="randomFactsContent"
-    animate-once
-    animation-only-scroll-down
-  />
+    <random-facts
+      :content="randomFactsContent"
+      animate-once
+      animation-only-scroll-down
+    />
 
-  <graphed-skills
-    :content="graphedSkillsContent"
-    animate-once
-    animation-only-scroll-down
-  />
+    <graphed-skills
+      :content="graphedSkillsContent"
+      animate-once
+      animation-only-scroll-down
+    />
 
-  <recommendations
-    :content="recommendationsContent"
-    :testimonials="testimonials"
-    :app-theme="'light'"
-    animate-once
-    animation-only-scroll-down
-  />
+    <recommendations
+      :content="recommendationsContent"
+      :testimonials="testimonials"
+      :app-theme="'light'"
+      animate-once
+      animation-only-scroll-down
+    />
+  </div>
 </template>

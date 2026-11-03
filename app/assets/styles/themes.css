@@ -1,0 +1,68 @@
+/* design tokens*/
+@theme {
+    --color-primary: var(--color-primary);
+    --color-secondary: var(--color-secondary);
+    --color-tertiary: var(--color-tertiary);
+
+    --color-yellow-primary: var(--color-yellow-primary);
+    --color-teal-primary: var(--color-teal-primary);
+    --color-teal-secondary: var(--color-teal-secondary);
+
+    --color-gray-primary: var(--color-gray-primary);
+    --color-gray-secondary: var(--color-gray-secondary);
+    --color-gray-lighter: var(--color-gray-lighter);
+
+    /* base container */
+    --color-base-container: var(--color-base-container);
+    --color-base-container-light: var(--color-base-container-light);
+
+    /* cards */
+    --color-card-bg: var(--color-card-bg);
+    --color-card-text: var(--color-card-text);
+}
+
+[data-theme="dark"] {
+    --color-primary: var(--bright-gray);
+    --color-secondary: var(--charcoal);
+    --color-tertiary: var(--spanish-gray);
+
+    --color-yellow-primary: var(--lemon-yellow);
+    --color-teal-primary: var(--bright-cyan);
+    --color-teal-secondary: var(--pastel-green);
+
+    --color-gray-primary: var(--spanish-gray);
+    --color-gray-secondary: var(--charcoal);
+    --color-gray-lighter: var(--onyx);
+
+    /* base container */
+    --color-base-container: var(--onyx);
+    --color-base-container-light: var(--charcoal);
+
+    /* cards */
+    --color-card-bg: var(--onyx);
+    --color-card-text: var(--color-white);
+}
+
+[data-theme="light"] {
+    --color-primary: var(--rich-black);
+    --color-secondary: var(--bright-gray);
+    --color-tertiary: var(--carbon);
+
+    --color-yellow-primary: var(--lemon-yellow);
+
+    --color-teal-primary: var(--bright-cyan);
+    --color-teal-secondary: var(--pastel-green);
+
+    --color-gray-primary: var(--spanish-gray);
+    --color-gray-secondary: var(--platinum-gray);
+
+    --color-gray-lighter: var(--desert-storm);
+
+    /* base container */
+    --color-base-container: var(--desert-storm);
+    --color-base-container-light: var(--bright-gray);
+
+    /* cards */
+    --color-card-bg: var(--color-white);
+    --color-card-text: var(--rich-black);
+}

@@ -31,6 +31,13 @@ export default defineNuxtConfig({
 
   modules: ['@pinia/nuxt', 'pinia-plugin-persistedstate/nuxt', '@nuxt/image'],
 
+  router: {
+    options: {
+      linkExactActiveClass: 'active',
+      linkActiveClass: 'active-parent',
+    },
+  },
+
   runtimeConfig: {
     public: {
       appUrl: '',

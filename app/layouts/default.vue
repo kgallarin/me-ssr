@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import Footer from '@components/layout/Footer.vue';
   import Header from '@components/layout/Header.vue';
+  import { useThemeStore } from '@store/modules/theme.ts';
 
   const defaultNav = [
     {
@@ -28,16 +29,19 @@
   const { timeNow, yearNow } = useLiveTime({
     timeZone: 'Asia/Singapore',
   });
+
+  const themeStore = useThemeStore();
+  const themeState = computed(() => themeStore.themeState);
+  const toggleTheme = () => themeStore.toggleTheme();
 </script>
 
 <template>
   <div data-testid="default-layout">
-    <!--    @todo: theme + actions-->
     <Header
       :nav="defaultNav"
       :sidebar-state="false"
-      theme="light"
-      @toggle-theme="() => {}"
+      :theme="themeState"
+      @toggle-theme="toggleTheme"
       @open-sidebar="() => {}"
     />
 
@@ -51,6 +55,7 @@
       :nav="defaultNav"
       :year-now="yearNow"
       :time-now="timeNow"
+      @toggle-theme="toggleTheme"
     />
   </div>
 </template>

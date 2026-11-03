@@ -1,6 +1,8 @@
 import { useAppStore } from '@store/modules/app.ts';
+import { useThemeStore } from '@store/modules/theme.ts';
 import { type ChartData, type ChartOptions } from 'chart.js';
 import { type Context } from 'chartjs-plugin-datalabels';
+import { THEME } from '~/assets/constants/index.ts';
 
 export const getChartData = (): ChartData<'bar'> => ({
   labels: [
@@ -74,12 +76,8 @@ export const getChartData = (): ChartData<'bar'> => ({
 export const getChartOptions = (): ChartOptions<'bar'> & {
   plugins: { datalabels?: unknown };
 } => {
-  // @todo: theme
+  const themeStore = useThemeStore();
   const appStore = useAppStore();
-  // const appStore = 'light';
-  // const theme = appStore === 1 ? 'dark' : 'light';
-  type ThemeOptions = 'light' | 'dark';
-  const theme: ThemeOptions = 'light';
   return {
     indexAxis: 'x' as const,
     responsive: true,
@@ -147,7 +145,7 @@ export const getChartOptions = (): ChartOptions<'bar'> & {
         border: {
           display: true,
 
-          color: theme !== 'light' ? '#ffffff' : '#E5E4E2FF',
+          color: themeStore.themeState === THEME.DARK ? '#ffffff' : '#E5E4E2FF',
         },
         ticks: {
           display: false,
@@ -162,7 +160,7 @@ export const getChartOptions = (): ChartOptions<'bar'> & {
         },
         border: {
           display: true,
-          color: theme !== 'light' ? '#ffffff' : '#E5E4E2FF',
+          color: themeStore.themeState === THEME.DARK ? '#ffffff' : '#E5E4E2FF',
         },
         ticks: {
           display: appStore.isDesktop,
@@ -171,7 +169,7 @@ export const getChartOptions = (): ChartOptions<'bar'> & {
             family: 'Proxima Nova, sans-serif, Helvetica Neue, Helvetica, Arial',
             size: appStore.queryBreakpoints(14, 14, 9),
           },
-          color: theme !== 'light' ? '#ffffff' : '#010303FF',
+          color: themeStore.themeState === THEME.DARK ? '#ffffff' : '#010303FF',
           callback: (value: string | number): string => {
             if (value === 100) return 'Seer';
             if (value === 80) return 'Magician';

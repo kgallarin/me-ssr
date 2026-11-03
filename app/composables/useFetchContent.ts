@@ -26,8 +26,25 @@ export function useFetchContent() {
     );
   }
 
+  function fetchContentManyByKeys(keys: MaybeRefOrGetter<string[]>) {
+    return useApiFetchList<PageTextContent, PageTextContentPayload>(
+      computed((): string => {
+        const resolvedKeys = toValue(keys);
+        return resolvedKeys.length
+          ? `${url.value}?keys=${resolvedKeys.join(',')}`
+          : url.value;
+      }),
+      (payload: PageTextContentPayload): PageTextContent[] =>
+        payload.contents as PageTextContent[],
+      {
+        key: computed(() => `global-text-content-arr-${toValue(keys).join('-')}`),
+      },
+    );
+  }
+
   return {
     fetchContent,
     fetchContentSingle,
+    fetchContentManyByKeys,
   };
 }

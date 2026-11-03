@@ -1,5 +1,7 @@
 <script setup lang="ts">
+  import { useThemeStore } from '@store/modules/theme.ts';
   import { ConfigProvider } from 'reka-ui';
+  import { STORAGE_KEYS, THEME } from '~/assets/constants';
 
   // useSeoMeta({
   //   titleTemplate: '%s | KGallarin',
@@ -8,6 +10,11 @@
   //   robots: 'index, follow',
   // });
 
+  const themeStore = useThemeStore();
+  onMounted(() => {
+    themeStore.initializeTheme();
+  });
+
   useHead({
     script: [
       {
@@ -15,20 +22,31 @@
         innerHTML: JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'Person',
-          'name': 'Kevin Gallarin | Frontend, Fullstack capable',
-          'url': 'https://kgallarin.com',
-          'sameAs': [
+          name: 'Kevin Gallarin | Frontend, Fullstack capable',
+          url: 'https://kgallarin.com',
+          sameAs: [
             'https://github.com/kgallarin',
             'https://www.linkedin.com/in/kgallarin',
           ],
         }),
       },
     ],
-  })
+  });
+
+  useHead({
+    script: [
+      {
+        innerHTML: `(function() {
+          const theme = localStorage.getItem(${JSON.stringify(STORAGE_KEYS.THEME)}) || ${THEME.LIGHT};
+          document.documentElement.setAttribute('data-theme', theme);
+        })()`,
+      },
+    ],
+  });
 </script>
 
 <template>
-  <div data-testid="app-root" class="theme-light h-full">
+  <div data-testid="app-root" class="h-full">
     <ConfigProvider>
       <NuxtLayout>
         <NuxtPage />

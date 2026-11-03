@@ -1,7 +1,11 @@
 @import "tailwindcss";
+@import "loaders.css";
+
 @import "./screens.css";
 @import "./fonts.css";
+
 @import "./colors.css";
+@import "./themes.css";
 
 @import "./vendor_overrides/splider.css";
 
@@ -61,34 +65,5 @@
 
 }
 
-/* Dont animate skeleton*/
-.skeleton,
-.skeleton * {
-   transition: none;
-}
 
-/* text shadows*/
-@layer utilities {
-    .text-shadow-thickens {
-        text-shadow: 0 0 0 rgba(0, 0, 0, 1);
-    }
-    .text-shadow {
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
-}
-
-.skeleton {
-    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-    background-size: 200% 100%;
-    animation: skeleton-loading 1.5s infinite linear;
-}
-
-@keyframes skeleton-loading {
-    0% {
-        background-position: 200% 0;
-    }
-    100% {
-        background-position: -200% 0;
-    }
-}
 

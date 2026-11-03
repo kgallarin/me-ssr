@@ -7,8 +7,31 @@ import type {
 import type { H3Event } from 'h3';
 
 export const GET_PAGE_CONTENT = `
-  query GetContent($key: String!) {
+  query GetContentsByKeys($key: String!) {
     content(key: $key) {
+      id
+      key
+      title
+      subtitle
+      content {
+        title
+        text
+      }
+      heroImages {
+        url
+        alt
+      }
+      socialImages {
+        url
+        alt
+      }
+    }
+  }
+`;
+
+export const GET_PAGE_CONTENT_BY_KEYS = `
+  query GetContentsByKeys($keys: [String!]) {
+    contents(keys: $keys) {
       id
       key
       title
@@ -60,6 +83,24 @@ export async function getPageContents(
     body: JSON.stringify({
       query: GET_PAGE_CONTENTS,
     }),
+  });
+}
+
+export async function getPageContentByKeys(
+  event: H3Event,
+  keys: string[],
+): Promise<ApiResponse<PageTextContentPayloadSingle>> {
+  const pageContentFetchByKeys = createAppFetch(event);
+
+  const payload = {
+    query: GET_PAGE_CONTENT_BY_KEYS,
+    variables: {
+      keys,
+    },
+  };
+  return await pageContentFetchByKeys('', {
+    method: 'POST',
+    body: JSON.stringify(payload),
   });
 }
 
