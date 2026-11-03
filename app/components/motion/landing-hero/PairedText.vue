@@ -2,7 +2,9 @@
   import { computed, ref } from 'vue';
 
   import type { IPairedText } from '@/types/SplitHeroAnimations.ts';
+  import { useThemeStore } from '@store/modules/theme.ts';
   import { motion } from 'motion-v';
+  import { THEME } from '~/assets/constants';
 
   const props = defineProps<{
     pairedTextsProps: IPairedText;
@@ -15,8 +17,8 @@
   const isHoveredLeft = ref(false);
   const isHoveredRight = ref(false);
 
-  // @todo: theme
-  const isDarkTheme = computed(() => 0);
+  const themeStore = useThemeStore();
+  const isDarkTheme = computed(() => themeStore.themeState === THEME.DARK);
   const getAnimatedColor = (isHovered: boolean) => {
     if (!isDarkTheme.value) {
       return isHovered || computedProps.value.darken ? '#010303' : '#1f2a2d';

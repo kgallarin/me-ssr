@@ -3,6 +3,7 @@
   import BaseContainer from '@components/base/BaseContainer.vue';
   import AnimatedLogo from '@components/motion/AnimatedLogo.vue';
   import ScalesOnPress from '@components/motion/ScalesOnPress.vue';
+  import { THEME } from '~/assets/constants';
   import { useIconLinks } from '~/composables/icon-links/useIconLinks.ts';
 
   withDefaults(
@@ -27,6 +28,7 @@
   const iconLinks = computed(() =>
     icons.value.filter((link) => link.name === 'linkedIn' || link.name === 'github'),
   );
+
   const toggleTheme = () => emit('toggleTheme');
 </script>
 
@@ -63,16 +65,18 @@
 
             <li class="theme-switcher pl-4">
               <button
-                class="theme-toggle flex items-center text-gray-300 transition-colors hover:text-white"
+                class="theme-toggle flex items-center text-gray-300 transition-colors hover:text-white cursor-pointer"
                 :aria-label="
-                  theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
+                  theme === THEME.DARK
+                    ? 'Switch to light mode'
+                    : 'Switch to dark mode'
                 "
                 @click="toggleTheme"
               >
                 <fa-icon
                   :icon="['far', 'lightbulb']"
                   :class="[
-                    theme !== 'dark' ? 'text-yellow-primary' : 'text-gray-500',
+                    theme !== THEME.DARK ? 'text-yellow-primary' : 'text-gray-500',
                     'text-2xl',
                   ]"
                 />

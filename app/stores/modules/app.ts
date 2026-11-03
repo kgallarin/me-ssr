@@ -33,8 +33,7 @@ export const useAppStore = defineStore('app', () => {
 
   return {
     breakpoints,
-    queryBreakpoints,
-
     isDesktop,
+    queryBreakpoints,
   };
 });

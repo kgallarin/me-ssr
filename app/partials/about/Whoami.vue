@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import type { PageTextContent } from '@/types/PageTextContent.ts';
+  import BaseContainer from '@components/base/BaseContainer.vue';
   import BaseSplider from '@components/base/BaseSplider.vue';
   import ScrollReveal from '@components/motion/ScrollReveal.vue';
   import { useAppStore } from '@store/modules/app.ts';
@@ -35,7 +36,7 @@
             <h1 class="mb-4 text-6xl lowercase tracking-tight text-tertiary">
               {{ content?.title }}
             </h1>
-            <p class="mb-4 font-acumin text-xl font-light" i>
+            <p class="mb-4 font-acumin text-xl font-light">
               <base-safe-html :html="content?.subtitle" />
             </p>
             <div v-for="(section, index) in content?.content" :key="index">

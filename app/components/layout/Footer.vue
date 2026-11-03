@@ -72,7 +72,7 @@
       <!-- nav starts-->
       <div class="flex flex-col items-center md:items-end">
         <button
-          class="theme-toggle flex items-center py-4 text-gray-300 transition-colors hover:text-white md:hidden"
+          class="theme-toggle cursor-pointer flex items-center py-4 text-gray-300 transition-colors hover:text-white md:hidden"
           :aria-label="
             theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
           "
@@ -82,7 +82,7 @@
             :icon="['far', 'lightbulb']"
             :class="[
               theme !== 'dark' ? 'bg-black/80 text-yellow-400' : 'text-gray-500',
-              'h-5 w-5 rounded-full p-2 text-2xl',
+              'h-5 w-5 rounded-full p-2 text-2xl cursor-pointer',
             ]"
           />
         </button>
@@ -92,13 +92,14 @@
               <nuxt-link
                 :to="{ path: item.to }"
                 class="nav-link flex items-center gap-2 font-acumin font-normal hover:text-gray-500"
+                exact-active-class="active"
               >
                 {{ item.label }}
               </nuxt-link>
             </li>
             <li class="theme-switcher relative -top-2">
               <button
-                class="theme-toggle flex items-center text-gray-300 transition-colors hover:text-white"
+                class="theme-toggle flex items-center text-gray-300 transition-colors hover:text-white cursor-pointer"
                 :aria-label="
                   theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
                 "

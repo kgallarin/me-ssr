@@ -6,7 +6,6 @@
 
   defineProps<{
     projects?: (Project | null | undefined)[];
-    theme?: string;
   }>();
 </script>
 
@@ -49,10 +48,7 @@
       >
         <div
           data-testid="project-card"
-          class="card relative flex h-full flex-col rounded-md p-1 shadow-md"
-          :class="[
-            theme === 'light' ? 'bg-white' : 'bg-gray-lighter shadow-white/5',
-          ]"
+          class="card relative flex h-full flex-col rounded-md p-1 shadow-md bg-card-bg shadow-white/5"
         >
           <base-splider
             :items="project?.images.map((img) => img.url)"
@@ -64,16 +60,13 @@
             :drag="false"
           />
           <!-- @todo: project card? -->
-          <div
-            class="relative p-4 text-primary"
-            :class="[theme === 'light' ? 'bg-white' : 'bg-gray-lighter']"
-          >
+          <div class="relative p-4 text-primary bg-card-bg shadow-white/5">
             <h2 class="mb-2 font-proxima text-lg font-medium text-primary">
               {{ project?.title }}
               <fa-icon
                 v-if="project?.order === 1"
                 :icon="['fab', 'github']"
-                :class="[theme === 'light' ? 'text-primary' : 'text-white']"
+                class="text-card-text"
               />
             </h2>
             <p class="inline font-acumin text-xs font-light">
