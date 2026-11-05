@@ -1,11 +1,12 @@
 <script setup lang="ts">
   import { nextTick, ref } from 'vue';
 
+  import type { AppTheme } from '@/types/App.ts';
   import type { Testimonial } from '@/types/Recommendations.ts';
 
   defineProps<{
     testimonial: Testimonial | null | undefined;
-    appTheme?: string;
+    theme?: AppTheme;
   }>();
 
   const cardRef = ref<HTMLElement | null>(null);
@@ -32,7 +33,7 @@
     <fa-icon
       v-if="testimonial?.linkedIn"
       class="text-md absolute right-3 top-3 rounded-sm text-[#0982c0]"
-      :class="appTheme === 'dark' ? 'bg-white py-[1px]' : ''"
+      :class="theme === 'dark' ? 'bg-white py-[1px]' : ''"
       :icon="['fab', 'linkedin']"
     />
     <div class="mt-2 flex justify-between border-b border-gray-200 pb-4">

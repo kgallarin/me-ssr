@@ -39,6 +39,15 @@ export interface CarouselConfig {
   showArrows: boolean;
 }
 
+export interface UseStaggeredVerticalNavOptions {
+  isOpen: MaybeRefOrGetter<boolean>;
+  theme?: MaybeRefOrGetter<AppTheme>;
+  onAnimationComplete?: () => void;
+  staggerDelay?: number;
+  childStaggerDelay?: number;
+  initialYOffset?: number;
+}
+
 export interface UseLiveTimeOptions {
   timeZone?: string;
   locale?: string;

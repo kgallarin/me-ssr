@@ -13,7 +13,7 @@
       testimonials: (Testimonial | null | undefined)[];
       animateOnce?: boolean;
       animationOnlyScrollDown?: boolean;
-      appTheme: AppTheme;
+      theme: AppTheme;
     }>(),
     {
       content: null,
@@ -74,10 +74,7 @@
             :animate-only-scroll-down="animationOnlyScrollDown"
             class="break-inside-avoid"
           >
-            <recommendation-card
-              :testimonial="recommendation"
-              :app-theme="appTheme"
-            />
+            <recommendation-card :testimonial="recommendation" :theme="theme" />
           </scroll-reveal>
         </div>
       </div>
@@ -98,10 +95,7 @@
             :animate-only-scroll-down="animationOnlyScrollDown"
             class="break-inside-avoid"
           >
-            <recommendation-card
-              :testimonial="recommendation"
-              :app-theme="appTheme"
-            />
+            <recommendation-card :testimonial="recommendation" :theme="theme" />
           </scroll-reveal>
         </div>
       </div>
@@ -117,7 +111,7 @@
           :animate-only-scroll-down="animationOnlyScrollDown"
           class="break-inside-avoid"
         >
-          <recommendation-card :testimonial="recommendation" :app-theme="appTheme" />
+          <recommendation-card :testimonial="recommendation" :theme="theme" />
         </scroll-reveal>
       </div>
     </base-container>

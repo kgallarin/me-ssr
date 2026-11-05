@@ -55,7 +55,7 @@
     <recommendations
       :content="recommendationsContent"
       :testimonials="testimonials"
-      :app-theme="'light'"
+      :theme="'light'"
       animate-once
       animation-only-scroll-down
     />

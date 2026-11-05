@@ -1,11 +1,12 @@
 <script setup lang="ts">
+  import type { AppTheme } from '@/types/App.ts';
   import type { NavLink } from '@/types/Props.ts';
   import { useIconLinks } from '~/composables/icon-links/useIconLinks.ts';
 
   withDefaults(
     defineProps<{
       nav?: NavLink[];
-      theme?: string;
+      theme?: AppTheme;
       yearNow?: number;
       timeNow?: string;
     }>(),

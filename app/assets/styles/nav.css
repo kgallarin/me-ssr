@@ -83,28 +83,15 @@
     }
 }
 
-    /* sidebar animation staggeringVNav */
+/* footer */
 
-   .bg-variant {
-       position: absolute;
-       top: 0;
-       left: 0;
-       right: 0;
-       bottom: 0;
-       width: 100%;
-       z-index: -1;
-   }
-
-
-    /* footer */
-
-   .footer-main {
-       li {
-           .nav-link {
-               @apply font-acumin text-primary;
-               &.active {
-                   @apply text-gray-400;
-               }
+.footer-main {
+   li {
+        .nav-link {
+           @apply font-acumin text-primary;
+           &.active {
+               @apply text-gray-400;
            }
        }
    }
+}
