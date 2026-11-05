@@ -5,7 +5,6 @@ import type { H3Event } from 'h3';
 
 export default defineEventHandler(
   async (event: H3Event): Promise<ApiResponse<PageTextContentPayloadSingle>> => {
-    // const key = event.context.params?.handle;
     const query = getQuery(event);
     const keysParam = query.keys;
 
