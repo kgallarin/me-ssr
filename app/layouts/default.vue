@@ -1,6 +1,8 @@
 <script setup lang="ts">
   import Footer from '@components/layout/Footer.vue';
   import Header from '@components/layout/Header.vue';
+  import Sidebar from '@components/layout/Sidebar.vue';
+  import { useAppStore } from '@store/modules/app.ts';
   import { useThemeStore } from '@store/modules/theme.ts';
 
   const defaultNav = [
@@ -33,16 +35,36 @@
   const themeStore = useThemeStore();
   const themeState = computed(() => themeStore.themeState);
   const toggleTheme = () => themeStore.toggleTheme();
+
+  const appStore = useAppStore();
+
+  const sidebarState = computed(() => appStore.sideBarState);
+  const toggleSidebar = () => appStore.toggleSidebar();
+  const closeSidebar = () => appStore.setSidebar(false);
+  const toggleThemeAndClose = () => {
+    closeSidebar();
+    toggleTheme();
+  };
 </script>
 
 <template>
   <div data-testid="default-layout">
     <Header
       :nav="defaultNav"
-      :sidebar-state="false"
+      :sidebar-state="sidebarState"
       :theme="themeState"
       @toggle-theme="toggleTheme"
-      @open-sidebar="() => {}"
+      @open-sidebar="toggleSidebar"
+    />
+
+    <!-- add more layout components if necessary -->
+    <Sidebar
+      :nav="defaultNav"
+      :theme="themeState"
+      :time-now="timeNow"
+      :sidebar-state="sidebarState"
+      @toggle-theme="toggleThemeAndClose"
+      @close-sidebar="closeSidebar"
     />
 
     <!-- router-view here -->

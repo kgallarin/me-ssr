@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import type { AppTheme } from '@/types/App.ts';
   import type { NavLink } from '@/types/Props.ts';
   import BaseContainer from '@components/base/BaseContainer.vue';
   import AnimatedLogo from '@components/motion/AnimatedLogo.vue';
@@ -9,7 +10,7 @@
   withDefaults(
     defineProps<{
       nav?: NavLink[];
-      theme?: string;
+      theme?: AppTheme;
       sidebarState?: boolean;
     }>(),
     {

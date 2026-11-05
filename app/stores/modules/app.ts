@@ -8,6 +8,8 @@ export const useAppStore = defineStore('app', () => {
     xl: 1280,
   });
 
+  const sideBarState = ref(false);
+
   const queryBreakpoints = <T>(
     desktopValue: T,
     tabletValue: T,
@@ -31,9 +33,24 @@ export const useAppStore = defineStore('app', () => {
 
   const isDesktop = computed((): boolean => breakpoints.greaterOrEqual('lg').value);
 
+  function setSidebar(state: boolean): void {
+    sideBarState.value = state;
+  }
+
+  function toggleSidebar(): void {
+    const sidebarNewState =
+      sideBarState.value === sideBarState.value
+        ? !sideBarState.value
+        : sideBarState.value;
+    setSidebar(sidebarNewState);
+  }
+
   return {
+    sideBarState,
     breakpoints,
     isDesktop,
+    setSidebar,
     queryBreakpoints,
+    toggleSidebar,
   };
 });
