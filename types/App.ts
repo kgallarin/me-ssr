@@ -1,4 +1,10 @@
+import { type BASE_TOAST_RIGHT_POS, BASE_TOAST_TOP_POS } from '~/assets/constants';
+
 export type AppTheme = 'light' | 'dark';
+
+export type ToastPosition = (
+  typeof BASE_TOAST_TOP_POS | typeof BASE_TOAST_RIGHT_POS
+)[number];
 
 export interface ParsedPartSafeHtml {
   type: 'br' | 'a' | 'strong' | 'span' | 'text';
@@ -51,4 +57,13 @@ export interface UseStaggeredVerticalNavOptions {
 export interface UseLiveTimeOptions {
   timeZone?: string;
   locale?: string;
+}
+
+export interface UseToastOptions {
+  show: MaybeRefOrGetter<boolean>;
+  position?: MaybeRefOrGetter<ToastPosition>;
+  index?: MaybeRefOrGetter<number>;
+  toastOffset?: MaybeRefOrGetter<number>;
+  showDelay?: MaybeRefOrGetter<number>;
+  onClose?: () => void;
 }
