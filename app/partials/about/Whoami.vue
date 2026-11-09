@@ -57,7 +57,9 @@
             :animate-only-scroll-down="animationOnlyScrollDown"
           >
             <base-image
-              class="min-h-[300px] object-cover shadow-lg"
+              :width="600"
+              :height="400"
+              image-container-class="w-full shadow-lg min-h-[420px]"
               rounded="rounded-md"
               :src="content?.heroImages?.[0]?.url ?? ''"
               :alt="content?.heroImages?.[0]?.alt ?? ''"
@@ -67,7 +69,7 @@
       </div>
 
       <!-- images -->
-      <div class="image-gallery py-10">
+      <div class="image-gallery py-10 min-h-[140px]">
         <scroll-reveal
           direction="up"
           :animate-once="animateOnce"
@@ -82,7 +84,7 @@
             :drag="true"
             :items-to-show="responsiveQueries"
             image-classes="rounded-md overflow-hidden"
-            image-container-class="border border-gray-300 p-1"
+            image-container-class="border w-full min-h-[100px] border-gray-300 p-1"
             rounded="rounded-md"
             fixed-height="100px"
             object-fit="cover"

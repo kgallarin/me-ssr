@@ -11,15 +11,19 @@
     objectFit: 'cover',
     imageContainerClass: '',
     imageClass: '',
+    width: undefined,
+    height: undefined,
+    aspectRatio: undefined,
   });
 
   const isLoaded = ref(false);
   const imgRef = ref<HTMLImageElement | null>(null);
 
   const onImgLoad = () => {
-    setTimeout(() => {
-      isLoaded.value = true;
-    }, 500);
+    // setTimeout(() => {
+    //   isLoaded.value = true;
+    // }, 500);
+    isLoaded.value = true;
   };
 
   onMounted(() => {
@@ -35,6 +39,13 @@
     data-testid="base-image"
     class="relative flex overflow-hidden"
     :class="[props.imageContainerClass, props.rounded]"
+    :style="{
+      aspectRatio:
+        props.aspectRatio ||
+        (props.width && props.height
+          ? `${props.width} / ${props.height}`
+          : undefined),
+    }"
   >
     <div
       v-if="(!isLoaded || !props.src) && props.showLoader"

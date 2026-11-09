@@ -20,4 +20,7 @@ export interface BaseImageProps {
   objectFit?: string;
   imageClass?: string;
   imageContainerClass?: string;
+  width?: number | undefined;
+  height?: number | undefined;
+  aspectRatio?: string | undefined;
 }
