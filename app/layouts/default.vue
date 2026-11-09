@@ -2,6 +2,7 @@
   import Footer from '@components/layout/Footer.vue';
   import Header from '@components/layout/Header.vue';
   import Sidebar from '@components/layout/Sidebar.vue';
+  import PagePaginationOnScrollButtons from '@components/motion/PagePaginationOnScrollButtons.vue';
   import { useAppStore } from '@store/modules/app.ts';
   import { useThemeStore } from '@store/modules/theme.ts';
 
@@ -45,6 +46,10 @@
     closeSidebar();
     toggleTheme();
   };
+
+  // pagination half-way scroll
+  const footerRef = ref<ComponentPublicInstance | null>(null);
+  const iconLinksReady = ref(true);
 </script>
 
 <template>
@@ -67,6 +72,10 @@
       @close-sidebar="closeSidebar"
     />
 
+    <page-pagination-on-scroll-buttons
+      :boundary-ref="footerRef"
+      :is-ready="iconLinksReady"
+    />
     <!-- router-view here -->
     <div class="flex flex-1 flex-col">
       <slot />

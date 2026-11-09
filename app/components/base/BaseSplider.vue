@@ -57,6 +57,8 @@
           class="h-full w-full"
         >
           <base-image
+            :width="140"
+            :height="100"
             :object-fit="props.objectFit"
             :src="typeof item === 'string' ? item : item.url"
             class="h-full w-full"

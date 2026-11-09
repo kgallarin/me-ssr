@@ -59,7 +59,9 @@
             :animate-only-scroll-down="true"
           >
             <base-image
-              class="object-cover shadow-lg"
+              :width="600"
+              :height="400"
+              image-container-class="w-full shadow-lg min-h-[420px]"
               rounded="rounded-md"
               :src="image?.url ?? ''"
               :alt="image?.alt ?? ''"
