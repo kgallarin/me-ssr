@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM"],
+    "types": ["cypress", "node"],
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "strict": true,
+    "paths": {
+      "@/*": ["../../*"],
+      "@fixtures/*": ["./fixtures/*"],
+      "@support/*": ["./support/*"],
+      "@factories/*": ["./factories/*"]
+    }
+  },
+  "include": ["**/*.ts"]
+}
