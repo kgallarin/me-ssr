@@ -10,7 +10,7 @@ declare global {
       // custom command for selecting dom attr
       getBySel(dataCyValue: string, options?: GetOptions): Chainable;
 
-      // intercept storefront graphql by operation name
+      // intercept  graphql by operation name
       mockGraphqlApi(operationName: string, fixturePath: string): Chainable;
     }
   }
