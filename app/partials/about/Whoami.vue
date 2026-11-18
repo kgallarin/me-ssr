@@ -59,7 +59,7 @@
             <base-image
               :width="600"
               :height="400"
-              image-container-class="w-full shadow-lg min-h-[420px]"
+              image-container-class="w-full shadow-lg"
               rounded="rounded-md"
               :src="content?.heroImages?.[0]?.url ?? ''"
               :alt="content?.heroImages?.[0]?.alt ?? ''"
