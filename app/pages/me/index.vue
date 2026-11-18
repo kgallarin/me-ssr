@@ -3,6 +3,11 @@
 
   import BaseSafeHtml from '@components/base/BaseSafeHtml.vue';
   import WhyFrontend from '@partials/story/WhyFrontend.vue';
+  import { useSeoPage } from '~/composables/seo/useSeoPage.ts';
+
+  useSeoPage({
+    title: 'me',
+  });
 
   const { fetchContentSingle } = useFetchContent();
 

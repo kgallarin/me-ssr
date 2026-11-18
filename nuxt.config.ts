@@ -40,6 +40,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
+      siteName: 'kgallarin',
       appUrl: '',
     },
     graphqlUrl: process.env.NUXT_GRAPHQL_URL || 'http://kgdev-backend.test/graphql',

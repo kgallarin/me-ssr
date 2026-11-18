@@ -3,13 +3,6 @@
   import { ConfigProvider } from 'reka-ui';
   import { STORAGE_KEYS, THEME } from '~/assets/constants';
 
-  // useSeoMeta({
-  //   titleTemplate: '%s | KGallarin',
-  //   ogType: 'website',
-  //   ogSiteName: 'Kevin Gallarin',
-  //   robots: 'index, follow',
-  // });
-
   const themeStore = useThemeStore();
   onMounted(() => {
     themeStore.initializeTheme();

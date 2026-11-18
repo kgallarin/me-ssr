@@ -6,8 +6,13 @@
   import Recommendations from '@partials/about/Recommendations.vue';
   import Whoami from '@partials/about/Whoami.vue';
   import { useRecommendations } from '~/composables/recommendations/useRecommendations.ts';
+  import { useSeoPage } from '~/composables/seo/useSeoPage.ts';
 
   const { fetchContentManyByKeys } = useFetchContent();
+
+  useSeoPage({
+    title: 'about',
+  });
 
   const { items: contents } = fetchContentManyByKeys([
     'whoami',
