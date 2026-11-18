@@ -9,6 +9,16 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      link: [
+        // Modern SVG Icon
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+
+        // Standard Legacy Favicon
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+
+        // Apple Touch Icon (iOS Safari)
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+      ],
       htmlAttrs: {
         lang: 'en',
       },
