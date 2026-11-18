@@ -4,7 +4,11 @@
   import ContactForm from '@components/form/ContactForm.vue';
   import ContactMe from '@partials/contact/ContactMe.vue';
   import { useIconLinks } from '~/composables/icon-links/useIconLinks.ts';
+  import { useSeoPage } from '~/composables/seo/useSeoPage.ts';
 
+  useSeoPage({
+    title: 'contact',
+  });
   const { fetchContentSingle } = useFetchContent();
 
   const contactFetch = fetchContentSingle('contact');

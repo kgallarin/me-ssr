@@ -5,10 +5,15 @@
   import { useAppStore } from '@store/modules/app.ts';
   import { useThemeStore } from '@store/modules/theme.ts';
   import { useProjects } from '~/composables/projects/useProjects.ts';
+  import { useSeoPage } from '~/composables/seo/useSeoPage.ts';
 
   definePageMeta({
     path: '/',
     layout: 'default',
+  });
+
+  useSeoPage({
+    title: 'home',
   });
 
   const showToast = ref(false);
