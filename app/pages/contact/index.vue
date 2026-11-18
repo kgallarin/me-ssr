@@ -14,7 +14,7 @@
 </script>
 
 <template>
-  <contact-me :icon-links="icons" :content="contactContent" />
+  <contact-me :icon-links="icons" :content="contactContent" animate-once />
   <div class="flex flex-1 flex-col">
     <section class="shadow-bottom flex-1 bg-gray-lighter shadow-custom-mid-inset">
       <!--	form starts-->
