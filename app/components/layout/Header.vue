@@ -48,6 +48,7 @@
           <ul class="text-md flex gap-8">
             <li v-for="item in nav" :key="item.label">
               <nuxt-link
+                data-testid="header-nav-link"
                 :to="{ path: item.to }"
                 class="nav-link font-acumin flex items-center gap-2 font-normal hover:text-gray-300"
               >
@@ -66,6 +67,7 @@
 
             <li class="theme-switcher pl-4">
               <button
+                data-testid="theme-switcher"
                 class="theme-toggle flex items-center text-gray-300 transition-colors hover:text-white cursor-pointer"
                 :aria-label="
                   theme === THEME.DARK
@@ -75,6 +77,7 @@
                 @click="toggleTheme"
               >
                 <fa-icon
+                  data-testid="theme-switcher-icon"
                   :icon="['far', 'lightbulb']"
                   :class="[
                     theme !== THEME.DARK ? 'text-yellow-primary' : 'text-gray-500',
@@ -88,8 +91,9 @@
 
         <scales-on-press class="md:hidden">
           <a
+            data-testid="sidebar-toggler"
             href="#"
-            class="flex items-center justify-center text-2xl text-white focus:outline-none"
+            class="md:hidden flex items-center justify-center text-2xl text-white focus:outline-none"
             aria-label="Open menu"
             @click.prevent.stop="emit('openSidebar')"
           >
