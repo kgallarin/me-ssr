@@ -37,12 +37,12 @@
 
 <template>
   <div class="bg-base-container">
-    <whoami :content="whoamiContents" animate-once animation-only-scroll-down />
+    <whoami :content="whoamiContents" animate-once />
 
     <charted-skills
       :content="chartedSkillsContent"
-      animate-once
       animation-only-scroll-down
+      animate-once
     />
 
     <random-facts

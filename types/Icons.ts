@@ -1,4 +1,4 @@
-type FaIconSingle = string[];
+export type FaIconSingle = string[];
 
 export interface FontAwesomeIconObject {
   icon: FaIconSingle;

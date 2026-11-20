@@ -8,11 +8,15 @@
       title?: string;
       text?: string | { title?: string; text: string }[];
       image?: Image | null;
+      animateOnce?: boolean;
+      animateOnlyScrollDown?: boolean;
     }>(),
     {
       title: '',
       text: '',
       image: null,
+      animateOnce: false,
+      animateOnlyScrollDown: false,
     },
   );
 </script>
@@ -26,8 +30,8 @@
         <div class="w-full text-balance pt-8 text-primary md:w-5/12">
           <scroll-reveal
             direction="left"
-            :animate-once="true"
-            :animate-only-scroll-down="true"
+            :animate-once="animateOnce"
+            :animate-only-scroll-down="animateOnlyScrollDown"
           >
             <h1
               class="mb-4 text-4xl capitalize tracking-tight text-tertiary md:text-4xl xl:text-6xl"
@@ -55,8 +59,8 @@
         <div class="w-full pt-8 md:w-1/2">
           <scroll-reveal
             direction="right"
-            :animate-once="true"
-            :animate-only-scroll-down="true"
+            :animate-once="animateOnce"
+            :animate-only-scroll-down="animateOnlyScrollDown"
           >
             <base-image
               :width="600"

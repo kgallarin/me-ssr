@@ -1,10 +1,12 @@
 <script setup lang="ts">
+  import type { IconLink } from '@/types/Icons.ts';
   import Footer from '@components/layout/Footer.vue';
   import Header from '@components/layout/Header.vue';
   import Sidebar from '@components/layout/Sidebar.vue';
   import PagePaginationOnScrollButtons from '@components/motion/PagePaginationOnScrollButtons.vue';
   import { useAppStore } from '@store/modules/app.ts';
   import { useThemeStore } from '@store/modules/theme.ts';
+  import { useIconLinks } from '~/composables/icon-links/useIconLinks.ts';
 
   const defaultNav = [
     {
@@ -47,6 +49,11 @@
     toggleTheme();
   };
 
+  const { icons } = useIconLinks();
+  const iconLinks = computed((): IconLink[] =>
+    icons.value.filter((link) => link.name === 'linkedIn' || link.name === 'github'),
+  );
+
   // pagination half-way scroll
   const footerRef = ref<ComponentPublicInstance | null>(null);
   const iconLinksReady = ref(true);
@@ -58,6 +65,7 @@
       :nav="defaultNav"
       :sidebar-state="sidebarState"
       :theme="themeState"
+      :icon-links="iconLinks"
       @toggle-theme="toggleTheme"
       @open-sidebar="toggleSidebar"
     />
