@@ -32,6 +32,7 @@
     :title="whyFrontendContent?.title"
     :text="whyFrontendContent?.content"
     :image="whyFrontendContent?.heroImages[0]"
+    animate-once
   />
   <section class="shadow-bottom bg-gray-lighter shadow-custom-mid-inset">
     <base-container class="py-12 md:py-16">

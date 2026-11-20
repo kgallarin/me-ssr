@@ -1,20 +1,22 @@
 <script setup lang="ts">
   import type { AppTheme } from '@/types/App.ts';
+  import type { IconLink } from '@/types/Icons.ts';
   import type { NavLink } from '@/types/Props.ts';
   import BaseContainer from '@components/base/BaseContainer.vue';
   import AnimatedLogo from '@components/motion/AnimatedLogo.vue';
   import ScalesOnPress from '@components/motion/ScalesOnPress.vue';
   import { THEME } from '~/assets/constants';
-  import { useIconLinks } from '~/composables/icon-links/useIconLinks.ts';
 
   withDefaults(
     defineProps<{
       nav?: NavLink[];
       theme?: AppTheme;
       sidebarState?: boolean;
+      iconLinks?: IconLink[];
     }>(),
     {
       nav: () => [],
+      iconLinks: () => [],
       theme: 'light',
       sidebarState: false,
     },
@@ -24,11 +26,6 @@
     (e: 'toggleTheme'): void;
     (e: 'openSidebar'): void;
   }>();
-
-  const { icons } = useIconLinks();
-  const iconLinks = computed(() =>
-    icons.value.filter((link) => link.name === 'linkedIn' || link.name === 'github'),
-  );
 
   const toggleTheme = () => emit('toggleTheme');
 </script>
@@ -60,7 +57,7 @@
               :key="link.id"
               :class="[index === 0 ? 'socials pl-8' : 'pl-0']"
             >
-              <nuxt-link :href="link.url" target="_blank">
+              <nuxt-link data-testid="icon-link" :href="link.url" target="_blank">
                 <fa-icon :icon="link.icon" class="text-2xl" />
               </nuxt-link>
             </li>
