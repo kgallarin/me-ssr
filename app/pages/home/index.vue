@@ -28,6 +28,19 @@
   setTimeout(() => {
     showToast.value = true;
   }, 1000);
+
+  const { $api } = useNuxtApp();
+
+  async function testRetryFlow() {
+    try {
+      const res = await $api('/_test/flaky', {
+        query: { mode: '422' },
+      });
+      console.log('Success response:', res);
+    } catch (err) {
+      console.error('Normalized error:', err);
+    }
+  }
 </script>
 
 <template>
@@ -49,6 +62,14 @@
     <animated-hero-section />
 
     <div>
+      <!-- Temporary test trigger -->
+      <button
+        type="button"
+        class="fixed bottom-4 right-4 z-50 rounded bg-black px-3 py-2 text-xs text-white"
+        @click="testRetryFlow"
+      >
+        Test Retry Flow
+      </button>
       <project-slider :projects="projects" />
     </div>
   </div>
