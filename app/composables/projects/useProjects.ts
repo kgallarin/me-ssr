@@ -29,6 +29,8 @@ export const useProjects = (first: number = 10) => {
         first,
         after: after.value ?? undefined,
       })),
+      retry: 3,
+      retryDelay: 500,
     },
   );
 
