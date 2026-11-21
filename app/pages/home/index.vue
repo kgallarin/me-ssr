@@ -33,12 +33,12 @@
 
   async function testRetryFlow() {
     try {
-      const res = await $api('/_test/flaky', {
+      await $api('/_test/flaky', {
         query: { mode: '422' },
       });
-      console.log('Success response:', res);
-    } catch (err) {
-      console.error('Normalized error:', err);
+      // console.log('Success response:', res);
+    } catch {
+      // console.error('Normalized error:', err);
     }
   }
 </script>
