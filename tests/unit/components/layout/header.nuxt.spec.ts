@@ -1,4 +1,5 @@
 import { createIconLinks } from '@/tests/factories/icon.links.factory.ts';
+import { createNavLinks } from '@/tests/factories/nav.links.factory.ts';
 import { headerUnitPage } from '@/tests/unit/support/components/layout/header.page.ts';
 import { renderAndInitializeStore } from '@/tests/unit/support/render.support.ts';
 import type { IconLink } from '@/types/Icons.ts';
@@ -47,18 +48,7 @@ describe('App header - Unit Test Suite', (): void => {
   });
 
   test('Given links have a correct href attribute', async (): Promise<void> => {
-    const navLinks = [
-      {
-        label: 'test',
-        to: '/',
-        icon: 'test-icon',
-      },
-      {
-        label: 'test label',
-        to: '/about',
-        icon: 'another-test-icon',
-      },
-    ];
+    const navLinks = createNavLinks(2);
 
     await renderAppHeader({
       props: {
@@ -68,11 +58,14 @@ describe('App header - Unit Test Suite', (): void => {
 
     expect(headerUnitPage.headerNavLinks).toHaveLength(2);
 
-    expect(headerUnitPage.getHeaderNavLinkByIndex(0)).toHaveAttribute('href', '/');
+    expect(headerUnitPage.getHeaderNavLinkByIndex(0)).toHaveAttribute(
+      'href',
+      navLinks[0]?.to,
+    );
 
     expect(headerUnitPage.getHeaderNavLinkByIndex(1)).toHaveAttribute(
       'href',
-      '/about',
+      navLinks[1]?.to,
     );
   });
 

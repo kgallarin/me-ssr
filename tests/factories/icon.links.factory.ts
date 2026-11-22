@@ -7,6 +7,8 @@ const iconLinkSeeder = (isTemplateType: boolean = false) => {
   const name = faker.word.sample(10);
   const url = faker.internet.url();
 
+  const faIcons = ['fa-times', 'fa-heart', 'fa-bars', 'fa-heart'];
+
   if (isTemplateType) {
     return {
       id: '',
@@ -21,7 +23,8 @@ const iconLinkSeeder = (isTemplateType: boolean = false) => {
     id: faker.string.sample(5),
     name,
     url,
-    icon: faker.helpers.multiple(() => faker.word.sample(4), { count: 2 }),
+    // fa solid
+    icon: ['fas', faker.helpers.arrayElement(faIcons)],
     classColor: faker.word.sample(3),
   };
 };

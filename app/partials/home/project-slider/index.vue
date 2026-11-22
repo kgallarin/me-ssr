@@ -97,9 +97,3 @@
     </base-splider>
   </base-container>
 </template>
-
-<style>
-  .svg-inline--fa {
-    fill: currentColor;
-  }
-</style>
