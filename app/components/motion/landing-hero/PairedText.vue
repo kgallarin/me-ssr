@@ -133,11 +133,3 @@
     </div>
   </div>
 </template>
-
-<style lang="scss">
-  .text-shard {
-    div {
-      @apply leading-tight;
-    }
-  }
-</style>
