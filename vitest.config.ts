@@ -7,6 +7,7 @@ export default defineVitestConfig({
     reporters: ['default'],
     hideSkippedTests: false,
     setupFiles: ['./tests/unit/support/setup.ts'],
+    slowTestThreshold: 1000, //ms; default:300
 
     environmentOptions: {
       nuxt: {

@@ -1,4 +1,5 @@
 import { AbstractUnitPageObject } from '@/tests/unit/support/page.base.ts';
+import { within } from '@testing-library/vue';
 
 export class HeaderUnitPage extends AbstractUnitPageObject {
   get headerParent(): HTMLElement {
@@ -10,7 +11,7 @@ export class HeaderUnitPage extends AbstractUnitPageObject {
   }
 
   get themeSwitcherButton(): HTMLElement {
-    return this.getByTestId('theme-switcher');
+    return within(this.headerParent).getByTestId('theme-switcher');
   }
 
   get sidebarToggler(): HTMLElement {

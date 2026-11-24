@@ -5,7 +5,7 @@ import { defu } from 'defu';
 
 const navLinkSeeder = (isTemplateType: boolean = false) => {
   const label = faker.word.sample(9);
-  const routeNameExample = faker.word.sample(1);
+  const routeNameExample = ['/', '/about', '/me', '/contact'];
   if (isTemplateType) {
     return {
       label: '',
@@ -16,7 +16,7 @@ const navLinkSeeder = (isTemplateType: boolean = false) => {
 
   return {
     label,
-    to: `/${routeNameExample}`,
+    to: faker.helpers.arrayElement(routeNameExample),
     icon: faker.word.sample(1),
   };
 };
