@@ -36,11 +36,13 @@
 </script>
 
 <template>
-  <div
+  <footer
+    data-testid="footer-main"
     class="footer-main relative mt-auto border border-t border-gray-secondary bg-gray-lighter p-8"
   >
     <a
       href="#"
+      data-testid="top-scroller"
       class="absolute -top-8 left-0 right-0 mx-auto flex h-16 w-16 items-center justify-center rounded-full border-t border-gray-secondary bg-gray-lighter md:-top-11 md:h-24 md:w-24"
       @click.prevent="scrollToTop"
     >
@@ -54,7 +56,10 @@
       class="inner mx-auto flex flex-col justify-center md:flex-row md:justify-between lg:max-w-screen-xl"
     >
       <div class="flex flex-col items-center gap-4 md:items-start">
-        <p class="font-proxima text-sm font-light text-primary">
+        <p
+          data-testid="year-now"
+          class="font-proxima text-sm font-light text-primary"
+        >
           &copy; {{ yearNow }} Kevin Gallarin
         </p>
         <div class="flex gap-4">
@@ -73,6 +78,7 @@
       <!-- nav starts-->
       <div class="flex flex-col items-center md:items-end">
         <button
+          data-testid="theme-switcher"
           class="theme-toggle cursor-pointer flex items-center py-4 text-gray-300 transition-colors hover:text-white md:hidden"
           :aria-label="
             theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
@@ -91,6 +97,7 @@
           <ul class="text-md flex gap-8 text-primary">
             <li v-for="item in nav" :key="item.label">
               <nuxt-link
+                data-testid="footer-nav-link"
                 :to="{ path: item.to }"
                 class="nav-link flex items-center gap-2 font-acumin font-normal hover:text-gray-500"
                 exact-active-class="active"
@@ -100,6 +107,7 @@
             </li>
             <li class="theme-switcher relative -top-2">
               <button
+                data-testid="theme-switcher"
                 class="theme-toggle flex items-center text-gray-300 transition-colors hover:text-white cursor-pointer"
                 :aria-label="
                   theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
@@ -124,6 +132,7 @@
           <fa-icon :icon="['fa', 'heart']" class="text-red-600 shadow-sm" />, KG
         </p>
         <p
+          data-testid="time-now"
           class="flex items-center pt-2 font-proxima text-sm font-light text-primary"
         >
           <fa-icon :icon="['far', 'clock']" class="mr-1 text-sm" />
@@ -131,5 +140,5 @@
         </p>
       </div>
     </div>
-  </div>
+  </footer>
 </template>
