@@ -12,4 +12,18 @@ export abstract class AbstractUnitPageObject {
   protected getAllByTestId(selector: string) {
     return screen.queryAllByTestId(selector);
   }
+
+  protected getElementAtIndex(
+    elements: HTMLElement[],
+    index: number,
+    label = 'Element',
+  ): HTMLElement {
+    const element = elements.at(index);
+
+    if (!element) {
+      throw new Error(`${label} at ${index} not found`);
+    }
+
+    return element;
+  }
 }

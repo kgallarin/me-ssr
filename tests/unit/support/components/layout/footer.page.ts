@@ -27,18 +27,15 @@ export class FooterUnitPage extends AbstractUnitPageObject {
   }
 
   public getThemeSwitcherButtonByIndex(index: number): HTMLElement {
-    const themeSwitcher = this.themeSwitcherButton[index];
-    if (!themeSwitcher)
-      throw new Error(`theme switcher at index ${index} not found`);
-
-    return themeSwitcher;
+    return this.getElementAtIndex(
+      this.themeSwitcherButton,
+      index,
+      'Theme Switcher Button',
+    );
   }
 
   public getFooterNavLinkByIndex(index: number): HTMLElement {
-    const link = this.footerNavLinks[index];
-    if (!link) throw new Error(`footer nav link at index ${index} not found`);
-
-    return link;
+    return this.getElementAtIndex(this.footerNavLinks, index, 'Footer Nav Link');
   }
 }
 
