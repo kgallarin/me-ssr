@@ -82,6 +82,7 @@
   >
     <div
       ref="sidebarMain"
+      data-testid="sidebar-main"
       class="sidebar-main h-full transition-opacity duration-300"
     >
       <staggering-vertical-nav
@@ -103,6 +104,7 @@
               :while-press="{ scale: 0.95 }"
             >
               <nuxt-link
+                data-testid="sidebar-nav-link"
                 :to="{ path: navItem.to }"
                 class="nav-link flex w-full items-center justify-between pb-2 text-sm text-secondary"
                 @click.prevent.stop="closeSidebar"
@@ -124,6 +126,7 @@
           <motion.ul
             v-if="iconLinks.length > 0"
             ref="icon-links"
+            data-testid="icon-link"
             class="absolute bottom-12 left-0 z-50 flex w-full justify-between gap-8 text-xl"
             :variants="iconLinksContainerVariants"
           >
@@ -147,6 +150,7 @@
 
             <motion.li class="mr-5" :variants="iconLinksItemVariants">
               <button
+                data-testid="sidebar-theme-toggler"
                 class="flex flex-col items-center text-primary"
                 :aria-label="
                   theme === THEME.DARK

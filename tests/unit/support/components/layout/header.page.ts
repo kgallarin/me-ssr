@@ -23,10 +23,7 @@ export class HeaderUnitPage extends AbstractUnitPageObject {
   }
 
   public getHeaderNavLinkByIndex(index: number): HTMLElement {
-    const link = this.headerNavLinks[index];
-    if (!link) throw new Error(`Header nav link at index ${index} not found`);
-
-    return link;
+    return this.getElementAtIndex(this.headerNavLinks, index, 'Header Nav Link');
   }
 
   get headerIconLink(): HTMLElement[] {
@@ -34,10 +31,7 @@ export class HeaderUnitPage extends AbstractUnitPageObject {
   }
 
   public getHeaderIconLinksByIndex(index: number): HTMLElement {
-    const iconLink = this.headerIconLink[index];
-    if (!iconLink) throw new Error(`Icon link at index ${index} not found`);
-
-    return iconLink;
+    return this.getElementAtIndex(this.headerIconLink, index, 'Header Icon Link');
   }
 }
 
