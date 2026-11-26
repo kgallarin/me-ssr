@@ -2,6 +2,7 @@
   import { computed, ref } from 'vue';
 
   import type { AppTheme } from '@/types/App.ts';
+  import type { IconLink } from '@/types/Icons.ts';
   import type { NavLink } from '@/types/Props.ts';
   import AnimatedLogo from '@components/motion/AnimatedLogo.vue';
   import ScalesOnPress from '@components/motion/ScalesOnPress.vue';
@@ -10,7 +11,6 @@
   import { stagger } from 'motion-v';
   import { motion } from 'motion-v';
   import { THEME } from '~/assets/constants';
-  import { useIconLinks } from '~/composables/icon-links/useIconLinks.ts';
 
   const props = withDefaults(
     defineProps<{
@@ -18,9 +18,11 @@
       theme?: AppTheme;
       sidebarState?: boolean;
       timeNow?: string;
+      iconLinks?: IconLink[];
     }>(),
     {
       nav: () => [],
+      iconLinks: () => [],
       theme: 'light',
       sidebarState: false,
       timeNow: '',
@@ -29,11 +31,6 @@
 
   const isSidebarOpen = computed((): boolean => props.sidebarState);
 
-  const { icons } = useIconLinks();
-  const iconLinks = computed(() =>
-    icons.value.filter((link) => link.name !== 'resume'),
-  );
-
   const emit = defineEmits<{
     (e: 'toggle-theme'): void;
     (e: 'close-sidebar'): void;
@@ -41,11 +38,6 @@
 
   const closeSidebar = () => emit('close-sidebar');
   const toggleTheme = () => emit('toggle-theme');
-
-  // const navigateTo = (to: string) => {
-  //   router.push({ name: to });
-  //   appStore.closeSidebar();
-  // };
 
   const sidebarMain = ref(null);
   onClickOutside(sidebarMain, () => {
@@ -89,7 +81,6 @@
         :theme="theme"
         :nav-items="nav"
         :is-open="isSidebarOpen"
-        @close="closeSidebar"
       >
         <template
           #stagger-nav-slot="{ variants: { containerVariants, itemVariants } }"
@@ -124,7 +115,7 @@
           </motion.ul>
 
           <motion.ul
-            v-if="iconLinks.length > 0"
+            v-if="props.iconLinks.length > 0"
             ref="icon-links"
             data-testid="icon-link"
             class="absolute bottom-12 left-0 z-50 flex w-full justify-between gap-8 text-xl"
@@ -150,7 +141,7 @@
 
             <motion.li class="mr-5" :variants="iconLinksItemVariants">
               <button
-                data-testid="sidebar-theme-toggler"
+                data-testid="theme-toggler"
                 class="flex flex-col items-center text-primary"
                 :aria-label="
                   theme === THEME.DARK

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+  import { computed } from 'vue';
+
   import type { IconLink } from '@/types/Icons.ts';
   import Footer from '@components/layout/Footer.vue';
   import Header from '@components/layout/Header.vue';
@@ -50,8 +52,11 @@
   };
 
   const { icons } = useIconLinks();
-  const iconLinks = computed((): IconLink[] =>
+  const headerIconLinks = computed((): IconLink[] =>
     icons.value.filter((link) => link.name === 'linkedIn' || link.name === 'github'),
+  );
+  const sidebarIconLinks = computed(() =>
+    icons.value.filter((link) => link.name !== 'resume'),
   );
 
   // pagination half-way scroll
@@ -65,7 +70,7 @@
       :nav="defaultNav"
       :sidebar-state="sidebarState"
       :theme="themeState"
-      :icon-links="iconLinks"
+      :icon-links="headerIconLinks"
       @toggle-theme="toggleTheme"
       @open-sidebar="toggleSidebar"
     />
@@ -76,6 +81,7 @@
       :theme="themeState"
       :time-now="timeNow"
       :sidebar-state="sidebarState"
+      :icon-links="sidebarIconLinks"
       @toggle-theme="toggleThemeAndClose"
       @close-sidebar="closeSidebar"
     />
