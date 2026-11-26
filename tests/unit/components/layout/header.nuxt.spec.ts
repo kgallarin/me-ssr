@@ -74,7 +74,7 @@ describe('App header - Unit Test Suite', (): void => {
 
     await renderAppHeader({
       props: {
-        iconLinks: iconLinks,
+        iconLinks,
       },
     });
     expect(headerUnitPage.headerIconLink).toHaveLength(2);

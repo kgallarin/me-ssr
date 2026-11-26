@@ -6,7 +6,7 @@ export class SidebarUnitPage extends AbstractUnitPageObject {
     return this.getByTestId('sidebar-main');
   }
   get themeToggler(): HTMLElement {
-    return within(this.sidebarMain).getByTestId('sidebar-theme-toggler');
+    return within(this.sidebarMain).getByTestId('theme-toggler');
   }
 
   get sidebarNavLinks(): HTMLElement[] {
@@ -21,3 +21,5 @@ export class SidebarUnitPage extends AbstractUnitPageObject {
     return within(this.sidebarMain).getAllByTestId('sidebar-icon-link');
   }
 }
+
+export const sidebarUnitPage = new SidebarUnitPage();

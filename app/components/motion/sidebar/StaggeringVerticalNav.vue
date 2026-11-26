@@ -14,7 +14,7 @@
     },
   );
 
-  const emit = defineEmits(['close', 'emit', 'animation-complete']);
+  const emit = defineEmits(['animation-complete']);
 
   const {
     targetRef,
